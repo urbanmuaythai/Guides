@@ -112,6 +112,10 @@ footer{border-top:1px solid var(--line);padding:22px 0 34px;color:var(--muted-2)
 :focus-visible{outline:2px solid var(--gold);outline-offset:2px;border-radius:6px}
 
 .guide-toolbar{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:20px}.guide-toolbar button{font:inherit;cursor:pointer}.guide-toolbar span{font-size:12px;color:var(--muted)}.guide-category-card:focus-visible{outline:2px solid var(--gold)}.llink{overflow-wrap:anywhere}@media(max-width:400px){.wrap{padding:0 14px}.guide-grid,.sop-columns{grid-template-columns:minmax(0,1fr)}.sop-header,.sop-body{padding:16px}.sop-header h3{font-size:23px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.guide-category-card,.sop-toggle i{transition:none}}
+
+/* Keep the page top bar visible inside the page and Google Sites embeds. */
+header.top{position:sticky;top:0;z-index:60;isolation:isolate;box-shadow:0 5px 18px #0002}html{scroll-padding-top:var(--sticky-height,100px)}[id]{scroll-margin-top:12px}
+@media print{header.top{position:static;box-shadow:none}}
 </style>
 </head>
 <body>
@@ -1511,5 +1515,5 @@ function openGuideFromHash(){
 window.addEventListener('load',()=>{initializeGuideControls();showAllGuides();openGuideFromHash();});
 window.addEventListener('hashchange',openGuideFromHash);
 </script>
-</body>
+<script>(()=>{const bar=document.querySelector("header.top");if(!bar)return;const update=()=>document.documentElement.style.setProperty('--sticky-height',(Math.ceil(bar.getBoundingClientRect().height)+16)+'px');new ResizeObserver(update).observe(bar);update();})();</script></body>
 </html>
