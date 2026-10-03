@@ -866,7 +866,7 @@ footer{border-top:1px solid var(--line);padding:22px 0 34px;color:var(--muted-2)
       <div id="guide-member-intelligence" class="guide-card sop-card" data-category="intelligence">
         <div class="sop-header">
           <h3><i class="ti ti-brain" aria-hidden="true"></i>Member Intelligence Report SOP</h3>
-          <p>Procedure for refreshing Urban Muaythai's active membership breakdown by membership type, program, age group, and status.</p>
+          <p>Procedure for refreshing membership breakdowns and cancellation insights using the latest Clubworx exports.</p>
           <div class="guide-actions">
             <a class="llink" href="https://docs.google.com/spreadsheets/d/1XQ54GziC_SIZBU1ZxEY1HR6Ysonmr9AJTF9WXcT8UfM/edit?gid=1431893033#gid=1431893033" target="_blank" rel="noopener"><i class="ti ti-external-link"></i> Open report</a>
           </div>
@@ -887,10 +887,11 @@ footer{border-top:1px solid var(--line);padding:22px 0 34px;color:var(--muted-2)
           </div>
           <div class="sop-section">
             <h4>Data Sources</h4>
-            <p>The Member Intelligence Report uses two Clubworx exports as source data.</p>
+            <p>The Member Intelligence Report uses three Clubworx exports as source data.</p>
             <ul>
               <li>Active Members Report</li>
               <li>Suspended Members Report</li>
+              <li>Cancellations Report — January 1 to December 31 of the year being reported</li>
             </ul>
           </div>
           <div class="sop-section">
@@ -912,25 +913,30 @@ footer{border-top:1px solid var(--line);padding:22px 0 34px;color:var(--muted-2)
             <div class="guide-note">This report contains all members currently on suspension.</div>
           </div>
           <div class="sop-section">
-            <h4>Step 3 - Update The Raw Data Tabs</h4>
+            <h4>Step 3 - Export The Cancellations Report</h4>
+            <ol><li>Open the Cancellations report in Clubworx.</li><li>Set the date range to <strong>January 1 through December 31</strong> of the same reporting year.</li><li>Download the complete export.</li></ol>
+          </div>
+          <div class="sop-section">
+            <h4>Step 4 - Update The Raw Data Tabs</h4>
             <p>Open the Member Intelligence Spreadsheet and paste the exported reports into their matching tabs.</p>
             <ul>
               <li>Raw Data - Active Members export</li>
               <li>Raw Suspensions - Suspended Members export</li>
+              <li><strong>RAW — Cancellations</strong> - full-year Cancellations export</li>
             </ul>
-            <div class="guide-note">Replace the previous data with the latest exports before running the refresh.</div>
+            <div class="guide-note">Replace the previous data with the latest exports before running the refresh. For RAW — Cancellations, keep the title and header layout: headers are on row 3, data starts on row 4. Paste the export into columns A–K in the matching order; columns L–N are filled by the script. Replace the old import rather than appending it.</div>
           </div>
           <div class="sop-section">
-            <h4>Step 4 - Refresh The Report</h4>
+            <h4>Step 5 - Refresh The Report</h4>
             <ol>
               <li>Click the Urban MT menu.</li>
-              <li>Select Refresh All Tabs.</li>
+              <li>Select <strong>Refresh All</strong> (Refresh All Tabs).</li>
               <li>Allow the script to complete.</li>
             </ol>
             <div class="guide-note">Do not edit the spreadsheet while the script is running.</div>
           </div>
           <div class="sop-section">
-            <h4>Step 5 - Review The Generated Reports</h4>
+            <h4>Step 6 - Review The Generated Reports</h4>
             <p>Once the refresh is complete, the spreadsheet automatically updates all reporting tabs and summary figures. No manual calculations are required.</p>
             <div class="sop-columns">
               <div>
@@ -950,9 +956,16 @@ footer{border-top:1px solid var(--line);padding:22px 0 34px;color:var(--muted-2)
                   <li>Front-End Memberships</li>
                   <li>Other Membership Types</li>
                   <li>Product Breakdown</li>
+                  <li>Cancellations — autopay cancellations and expiries, recent trends and scheduled endings</li>
                 </ul>
               </div>
             </div>
+          </div>
+          <div class="sop-section">
+            <h4>Cancellation Insights</h4>
+            <p>After Refresh All, open <strong>Cancellations</strong> to review autopay memberships ending this week, the prior three weeks, the last 90 days and scheduled future endings. The view distinguishes cancellations from expiries.</p>
+            <div class="guide-note">Membership End is the member’s last day; leaving takes effect the following day. Non-autopay endings (such as trials, casual visits and passes) are shown separately from the autopay cancellation counts.</div>
+            <div class="guide-actions"><a class="llink" href="https://docs.google.com/spreadsheets/d/1XQ54GziC_SIZBU1ZxEY1HR6Ysonmr9AJTF9WXcT8UfM/edit?gid=1799152600#gid=1799152600" target="_blank" rel="noopener">Open Cancellation Raw</a><a class="llink" href="https://docs.google.com/spreadsheets/d/1XQ54GziC_SIZBU1ZxEY1HR6Ysonmr9AJTF9WXcT8UfM/edit?gid=96618622#gid=96618622" target="_blank" rel="noopener">Open Cancellation Insights</a></div>
           </div>
           <div class="sop-section">
             <h4>Using The Report</h4>
@@ -963,6 +976,7 @@ footer{border-top:1px solid var(--line);padding:22px 0 34px;color:var(--muted-2)
               <li>Review membership composition.</li>
               <li>Monitor trial and front-end memberships.</li>
               <li>Analyse membership product distribution.</li>
+              <li>Review cancellation and expiry trends to support retention follow-up.</li>
             </ul>
           </div>
           <div class="sop-section">
@@ -972,6 +986,7 @@ footer{border-top:1px solid var(--line);padding:22px 0 34px;color:var(--muted-2)
                 <ul>
                   <li>The latest Active Members report has been exported from Clubworx.</li>
                   <li>The latest Suspended Members report has been exported from Clubworx.</li>
+                  <li>The January 1–December 31 Cancellations export has replaced the old data in RAW — Cancellations.</li>
                   <li>The Active Members report has been pasted into the Raw Data tab.</li>
                   <li>The Suspended Members report has been pasted into the Raw Suspensions tab.</li>
                 </ul>
@@ -982,6 +997,7 @@ footer{border-top:1px solid var(--line);padding:22px 0 34px;color:var(--muted-2)
                   <li>All reporting tabs have updated without errors.</li>
                   <li>Auto-Pay Members and Suspended Members match the latest Clubworx figures.</li>
                   <li>All summary reports display current information.</li>
+                  <li>Cancellations insights have updated and the reporting year has been checked.</li>
                 </ul>
               </div>
             </div>
@@ -989,7 +1005,7 @@ footer{border-top:1px solid var(--line);padding:22px 0 34px;color:var(--muted-2)
           <div class="sop-section">
             <h4>Quality Standard</h4>
             <ul>
-              <li>Both raw data exports have been updated.</li>
+              <li>All three raw data exports have been updated.</li>
               <li>The refresh script has completed successfully.</li>
               <li>All report tabs display current information.</li>
               <li>Membership categories accurately reflect the latest Clubworx data.</li>
@@ -999,12 +1015,13 @@ footer{border-top:1px solid var(--line);padding:22px 0 34px;color:var(--muted-2)
           <div class="sop-section">
             <h4>Escalation Rules</h4>
             <ul>
-              <li>Escalate if the Active Members or Suspended Members report cannot be exported from Clubworx.</li>
+              <li>Escalate if the Active Members, Suspended Members or Cancellations report cannot be exported from Clubworx.</li>
               <li>Escalate if the raw data cannot be imported into the spreadsheet.</li>
               <li>Escalate if Refresh All Tabs fails to complete.</li>
               <li>Escalate if report totals do not match Clubworx.</li>
               <li>Escalate if Auto-Pay or Suspended Member counts appear incorrect.</li>
               <li>Escalate if any reporting tab fails to populate after the refresh.</li>
+              <li>Escalate if cancellation insights remain blank or do not reflect the latest import.</li>
             </ul>
           </div>
         </div>
