@@ -1,0 +1,1437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Assistant 2.0 — Spreadsheet Guides</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+:root{
+  --ink:#101326; --panel:#181c37; --panel-2:#20254a;
+  --navy:#1B1F3B; --red:#C8102E; --red-hi:#e8324e; --gold:#F5B921;
+  --text:#EEF0FA; --muted:#9aa0c4; --muted-2:#6f76a0;
+  --line:rgba(255,255,255,.09); --line-hi:rgba(255,255,255,.16);
+  --shadow:0 18px 40px -22px rgba(0,0,0,.75); --r:14px; --maxw:1140px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;
+  background:
+    radial-gradient(1200px 500px at 85% -10%, rgba(200,16,46,.18), transparent 60%),
+    radial-gradient(900px 500px at -5% 0%, rgba(245,185,33,.08), transparent 55%),
+    var(--ink);
+  color:var(--text);font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  -webkit-font-smoothing:antialiased;line-height:1.5;min-height:100vh}
+a{color:inherit}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+.rope{height:6px;width:100%;background:repeating-linear-gradient(90deg,var(--red) 0 44px,var(--gold) 44px 88px)}
+header.top{position:sticky;top:0;z-index:40;background:rgba(16,19,38,.92);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);padding:16px 0}
+.brand{display:flex;align-items:center;gap:14px}
+.mark{width:40px;height:40px;border-radius:10px;background:linear-gradient(140deg,var(--red),#8f0b20);
+  display:grid;place-items:center;font-family:'Bebas Neue';font-size:20px;letter-spacing:1px;color:#fff;flex-shrink:0}
+.brand h1{font-family:'Bebas Neue';font-weight:400;font-size:26px;line-height:.95;letter-spacing:1px;margin:0}
+.brand h1 span{color:var(--gold)}
+.brand small{display:block;color:var(--muted);font-size:10.5px;letter-spacing:1.3px;text-transform:uppercase;margin-top:2px}
+main{padding-bottom:70px}
+h2.sec{font-family:'Bebas Neue';font-weight:400;font-size:22px;letter-spacing:.5px;
+  margin:34px 0 14px;padding-bottom:10px;border-bottom:1px solid var(--line);color:var(--text)}
+h2.sec i{color:var(--red-hi);font-style:normal;margin-right:8px}
+h2.sec:first-of-type{margin-top:26px}
+
+.sec-head{display:flex;align-items:center;gap:9px;margin:34px 0 14px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+.sec-head:first-of-type{margin-top:26px}
+.sec-head h2{font-family:'Bebas Neue';font-weight:400;font-size:22px;letter-spacing:.5px;color:var(--text);margin:0}
+.sec-head i{color:var(--red-hi);font-size:18px}
+
+.guide-intro{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:22px 24px;
+  display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;box-shadow:var(--shadow);margin-top:20px}
+.guide-intro h3{font-family:'Bebas Neue';font-size:28px;color:var(--text);letter-spacing:.03em;line-height:1.15;margin:0 0 8px}
+.guide-intro p{font-size:13px;color:var(--muted);line-height:1.6;max-width:680px;margin:0}
+.guide-badge{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#1a1200;
+  background:var(--gold);border-radius:6px;padding:6px 10px;white-space:nowrap;height:fit-content}
+
+.guide-categories{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;margin-top:20px}
+.guide-category-card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:15px;
+  cursor:pointer;transition:all .2s;display:flex;flex-direction:column;gap:9px}
+.guide-category-card:hover{border-color:var(--red);box-shadow:0 4px 16px -6px rgba(200,16,46,.5);transform:translateY(-2px)}
+.guide-category-icon{width:36px;height:36px;background:var(--panel-2);border-radius:8px;display:flex;
+  align-items:center;justify-content:center;font-size:16px;color:var(--red-hi)}
+.guide-category-title{font-size:12.5px;font-weight:700;color:var(--text);letter-spacing:.02em}
+.guide-category-desc{font-size:10.5px;color:var(--muted);line-height:1.35}
+.guide-category-count{font-size:9px;font-weight:600;color:var(--muted-2);text-transform:uppercase;letter-spacing:.05em;margin-top:2px}
+
+.guide-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:14px}
+.sop-card{grid-column:1/-1;padding:0;overflow:hidden;background:linear-gradient(180deg,var(--panel),#14172e);
+  border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);scroll-margin-top:82px}
+.sop-header{background:#0c0e1e;padding:18px 20px;position:relative}
+.sop-header h3{font-family:'Bebas Neue';font-size:26px;color:var(--gold);letter-spacing:.03em;margin:0 0 8px;
+  display:flex;align-items:center;gap:9px}
+.sop-header h3 i{color:var(--gold);font-style:normal}
+.sop-header p{color:var(--muted);max-width:780px;margin:0;font-size:13px;line-height:1.55}
+.sop-body{padding:18px 20px;display:grid;gap:14px}
+.sop-card.is-collapsed .sop-body{display:none}
+.sop-card.is-collapsed .sop-footer{display:none}
+.sop-toggle{display:inline-flex;align-items:center;gap:6px;margin-top:12px;padding:7px 12px;border:1px solid var(--line-hi);
+  border-radius:7px;background:rgba(255,255,255,.06);color:#fff;font-family:'Inter',sans-serif;font-size:10.5px;
+  font-weight:700;letter-spacing:.05em;text-transform:uppercase;cursor:pointer;transition:background .15s,border-color .15s}
+.sop-toggle:hover{background:rgba(255,255,255,.12);border-color:var(--gold)}
+.sop-toggle:focus-visible,.back-to-top:focus-visible,.guide-back-top:focus-visible{outline:3px solid rgba(245,185,33,.55);outline-offset:2px}
+.sop-toggle i{font-size:13px;transition:transform .2s;display:inline-block}
+.sop-card:not(.is-collapsed) .sop-toggle i{transform:rotate(180deg)}
+.back-to-top{position:fixed;right:20px;bottom:20px;z-index:900;display:flex;align-items:center;gap:7px;
+  padding:11px 15px;border:0;border-radius:999px;background:var(--red);color:#fff;
+  box-shadow:0 8px 22px -6px rgba(200,16,46,.7);font-family:'Inter',sans-serif;font-size:10.5px;font-weight:700;
+  letter-spacing:.06em;text-transform:uppercase;cursor:pointer;transition:background .15s}
+.back-to-top:hover{background:var(--red-hi)}
+.sop-footer{display:flex;justify-content:center;padding:2px 20px 20px}
+.guide-back-top{display:inline-flex;align-items:center;gap:7px;padding:9px 14px;border:1px solid var(--line-hi);
+  border-radius:999px;background:transparent;color:var(--muted);font-family:'Inter',sans-serif;font-size:10.5px;
+  font-weight:700;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;transition:background .15s,color .15s}
+.guide-back-top:hover{background:var(--panel-2);color:var(--text)}
+.sop-section{border:1px solid var(--line);border-radius:10px;padding:14px;background:rgba(255,255,255,.02)}
+.sop-section h4{font-family:'Bebas Neue';font-size:17px;color:var(--text);letter-spacing:.03em;margin:0 0 8px}
+.sop-section h5{font-size:10.5px;color:var(--gold);letter-spacing:.06em;text-transform:uppercase;margin:12px 0 6px;font-weight:700}
+.sop-section p{font-size:12.5px;color:var(--muted);line-height:1.6;margin:0 0 8px}
+.sop-section ol,.sop-section ul{margin:0 0 9px 18px;padding:0}
+.sop-section li{font-size:12.5px;color:var(--text);line-height:1.55;padding:2px 0}
+.sop-section strong{color:var(--gold);font-weight:600}
+.sop-columns{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.guide-note{font-size:12px;color:var(--muted);background:rgba(245,185,33,.08);border:1px solid rgba(245,185,33,.22);
+  border-radius:8px;padding:10px 12px;line-height:1.55}
+.guide-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.llink{font-size:12px;color:var(--gold);text-decoration:none;display:inline-flex;align-items:center;gap:5px;
+  background:rgba(245,185,33,.1);border:1px solid rgba(245,185,33,.25);border-radius:7px;padding:6px 10px}
+.llink:hover{background:rgba(245,185,33,.18)}
+.llink i{font-style:normal}
+
+footer{border-top:1px solid var(--line);padding:22px 0 34px;color:var(--muted-2);font-size:12px}
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px;border-radius:6px}
+
+.guide-toolbar{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:20px}.guide-toolbar button{font:inherit;cursor:pointer}.guide-toolbar span{font-size:12px;color:var(--muted)}.guide-category-card:focus-visible{outline:2px solid var(--gold)}.llink{overflow-wrap:anywhere}@media(max-width:400px){.wrap{padding:0 14px}.guide-grid,.sop-columns{grid-template-columns:minmax(0,1fr)}.sop-header,.sop-body{padding:16px}.sop-header h3{font-size:23px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.guide-category-card,.sop-toggle i{transition:none}}
+</style>
+</head>
+<body>
+<div class="rope"></div>
+<header class="top">
+  <div class="wrap brand">
+    <div class="mark">UM</div>
+    <div>
+      <h1>SPREADSHEET <span>GUIDES</span></h1>
+      <small>Assistant 2.0 · SOP for every report &amp; tracker</small>
+    </div>
+  </div>
+</header>
+<main class="wrap">
+    <div class="sec-head"><i class="ti ti-book" aria-hidden="true"></i><h2>Spreadsheet Guides</h2></div>
+    <div class="guide-intro">
+      <div>
+        <h3>How to use the portal spreadsheets</h3>
+        <p>Use these guides when you need the purpose, update rhythm, and completion standard for each spreadsheet before opening or editing it.</p>
+      </div>
+      <div class="guide-badge">Quick reference</div>
+    </div>
+    <div class="guide-toolbar"><button type="button" class="llink" onclick="showAllGuides()">All Guides</button><span id="guide-status" role="status" aria-live="polite"></span></div>
+    <div class="guide-categories">
+      <div class="guide-category-card" role="button" tabindex="0" data-filter="daily" aria-pressed="false" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();filterGuideCategory('daily')}" onclick="filterGuideCategory('daily')">
+        <div class="guide-category-icon"><i class="ti ti-clock" aria-hidden="true"></i></div>
+        <div class="guide-category-title">Daily Tasks</div>
+        <div class="guide-category-desc">Update & tracking routines</div>
+        <div class="guide-category-count">2 guides</div>
+      </div>
+      <div class="guide-category-card" role="button" tabindex="0" data-filter="weekly" aria-pressed="false" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();filterGuideCategory('weekly')}" onclick="filterGuideCategory('weekly')">
+        <div class="guide-category-icon"><i class="ti ti-calendar-week" aria-hidden="true"></i></div>
+        <div class="guide-category-title">Weekly Reports</div>
+        <div class="guide-category-desc">Reporting & dashboard</div>
+        <div class="guide-category-count">4 guides</div>
+      </div>
+      <div class="guide-category-card" role="button" tabindex="0" data-filter="retention" aria-pressed="false" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();filterGuideCategory('retention')}" onclick="filterGuideCategory('retention')">
+        <div class="guide-category-icon"><i class="ti ti-flag" aria-hidden="true"></i></div>
+        <div class="guide-category-title">Retention</div>
+        <div class="guide-category-desc">Flag trackers & outreach</div>
+        <div class="guide-category-count">2 guides</div>
+      </div>
+      <div class="guide-category-card" role="button" tabindex="0" data-filter="intelligence" aria-pressed="false" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();filterGuideCategory('intelligence')}" onclick="filterGuideCategory('intelligence')">
+        <div class="guide-category-icon"><i class="ti ti-brain" aria-hidden="true"></i></div>
+        <div class="guide-category-title">Intelligence</div>
+        <div class="guide-category-desc">Member & data analysis</div>
+        <div class="guide-category-count">2 guides</div>
+      </div>
+    </div>
+    <div class="sec-head"><i class="ti ti-book-2" aria-hidden="true"></i><h2>Complete SOPs & Guides</h2></div>
+    <div class="guide-grid">
+      <div id="guide-new-member" class="guide-card sop-card" data-category="daily">
+        <div class="sop-header">
+          <h3><i class="ti ti-users" aria-hidden="true"></i>New Member Spreadsheet SOP</h3>
+          <p>Daily and weekly procedure for adding new members, checking Kickstarter records, rebuilding Reach Out, and keeping rollover reporting clean.</p>
+          <div class="guide-actions">
+            <a class="llink" href="https://docs.google.com/spreadsheets/d/1RzZW1fI-7QRkiDHNBWkOJpbeDZ6GsFl7LrfM2uJP5Lc/edit" target="_blank" rel="noopener"><i class="ti ti-external-link"></i> Open spreadsheet</a>
+          </div>
+        </div>
+        <div class="sop-body">
+          <div class="sop-section">
+            <h4>Purpose</h4>
+            <ul>
+              <li>Record every new Urban Muaythai member.</li>
+              <li>Track each member's Kickstarter or trial progress.</li>
+              <li>Monitor weekly attendance and identify members who require follow-up.</li>
+              <li>Track upcoming rollover opportunities.</li>
+              <li>Ensure no new member is missed during onboarding or conversion.</li>
+            </ul>
+          </div>
+          <div class="sop-section">
+            <h4>Spreadsheet Tabs</h4>
+            <div class="sop-columns">
+              <ul>
+                <li><strong>Reporting Period:</strong> weekly reporting periods used for rollover reporting.</li>
+                <li><strong>Kickstarter Master:</strong> main source of truth for all new-member information.</li>
+                <li><strong>Weekly Rollover Report:</strong> members whose rollover is due in the current Friday-to-Thursday period.</li>
+              </ul>
+              <ul>
+                <li><strong>Monthly Rollover Report:</strong> rollover opportunities due during the selected month.</li>
+                <li><strong>Reach Out:</strong> script-created tab that groups members into attendance and follow-up buckets.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="sop-section">
+            <h4>Daily Procedure</h4>
+            <h5>1. Check Slack for new members</h5>
+            <ul>
+              <li>Check Slack every morning for new members who were added or signed up.</li>
+              <li>Confirm full name, start date, Kickstarter or trial type, deposit/payment info, payment date, salesperson, age group, and lead source.</li>
+              <li>Add every new member posted in Slack as soon as possible.</li>
+            </ul>
+            <h5>2. Add the new member</h5>
+            <ol>
+              <li>Open the New Member Spreadsheet.</li>
+              <li>Click the Urban Muaythai menu.</li>
+              <li>Select Add New Member.</li>
+              <li>Complete the prompts: lead source, full name, start date, Kickstarter type, deposit amount, payment date, salesperson, and age group.</li>
+              <li>Review the information, then click Add Member.</li>
+            </ol>
+            <div class="guide-note">Cross-check deposit amount and payment date against Clubworx before submitting.</div>
+            <h5>3. Check the Kickstarter Master entry</h5>
+            <ul>
+              <li>Confirm name spelling, start date, Kickstarter type, payment amount, payment date, salesperson, and age group.</li>
+              <li>Check that rollover due date and reporting period were calculated correctly.</li>
+              <li>Fix incorrect information in Kickstarter Master, because this tab is the source of truth.</li>
+            </ul>
+            <h5>4. Complete daily member checks</h5>
+            <ul>
+              <li>Check for missing Clubworx notes, waiver, photo, member number, attendance, payment details, or staff follow-up.</li>
+              <li>Record replies, cancellations, rollover outcomes, and important notes in the appropriate fields.</li>
+              <li>When a member rolls over, update rollover status and rollover date in Kickstarter Master.</li>
+            </ul>
+          </div>
+          <div class="sop-section">
+            <h4>Monday Attendance And Reach Out Procedure</h4>
+            <h5>1. Build the Reach Out tab</h5>
+            <ol>
+              <li>Open the New Member Spreadsheet.</li>
+              <li>Click the Urban Muaythai menu.</li>
+              <li>Select Build Reach Out Tab.</li>
+              <li>Allow the script to finish, then open the refreshed Reach Out tab.</li>
+            </ol>
+            <div class="guide-note">Do not manually rebuild or rearrange the buckets unless an error needs to be corrected.</div>
+            <h5>2. Review buckets</h5>
+            <ul>
+              <li>Check program type, current week, attendance, rollover due date, and status.</li>
+              <li>Pay close attention to Week 1, Week 2, Week 3, Week 4, zero attendance, and members approaching rollover.</li>
+            </ul>
+            <h5>3. Update Week 4 attendance</h5>
+            <ol>
+              <li>Review attendance in the Reach Out tab.</li>
+              <li>If Week 4 attendance shows zero incorrectly, clear the incomplete entry.</li>
+              <li>Check the member's full 28-day Kickstarter attendance in Clubworx.</li>
+              <li>Enter the correct 28-day rollover attendance and confirm it matches Clubworx.</li>
+            </ol>
+            <h5>4. Cross-check Week 3 attendance</h5>
+            <ol>
+              <li>Review the Reach Out attendance.</li>
+              <li>Open Clubworx and search the member.</li>
+              <li>Correct the spreadsheet if attendance does not match.</li>
+              <li>Confirm the member is in the correct attendance and follow-up bucket.</li>
+            </ol>
+            <h5>5. Review Week 1 and Week 2 attendance</h5>
+            <ul>
+              <li>Confirm attendance is recorded and cross-check unusual results in Clubworx.</li>
+              <li>Investigate zero or low attendance, not-started members, sickness, booking issues, or missed sign-ins.</li>
+            </ul>
+            <h5>6. Identify members requiring reach out</h5>
+            <ul>
+              <li>Prioritise zero attendance, declining attendance, low Week 3 attendance, inconsistent Week 4 attendance, unresolved concerns, and members close to rollover.</li>
+              <li>Before messaging, check Clubworx notes, previous conversations, whether staff already contacted them, and personalise the message.</li>
+              <li>Record the message and any response in the notes.</li>
+            </ul>
+          </div>
+          <div class="sop-section">
+            <h4>Rollover Report Procedure</h4>
+            <div class="sop-columns">
+              <div>
+                <h5>Weekly Rollover Report</h5>
+                <ul>
+                  <li>Review members whose rollover is due in the current Friday-to-Thursday period.</li>
+                  <li>Check active status, rollover due date, attendance, assigned/completed rollover conversation, and outcome.</li>
+                  <li>Remove or update members who have already rolled over, cancelled, or moved to a short-term outcome.</li>
+                </ul>
+              </div>
+              <div>
+                <h5>Monthly Rollover Report</h5>
+                <ul>
+                  <li>Use this for forecasting upcoming rollover opportunities.</li>
+                  <li>Plan staff follow-ups and monitor monthly conversion performance.</li>
+                  <li>Check whether any rollover has been missed.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="sop-section">
+            <h4>Completion Checklists</h4>
+            <div class="sop-columns">
+              <div>
+                <h5>Daily completion</h5>
+                <ul>
+                  <li>All Slack new members have been added.</li>
+                  <li>Kickstarter Master information is correct.</li>
+                  <li>Clubworx payments and payment dates are checked.</li>
+                  <li>Missing waivers, notes, photos, or member numbers are actioned.</li>
+                  <li>Member replies and rollover outcomes are updated.</li>
+                  <li>No duplicate member records have been created.</li>
+                </ul>
+              </div>
+              <div>
+                <h5>Monday completion</h5>
+                <ul>
+                  <li>Reach Out tab has been rebuilt using the script.</li>
+                  <li>Week 4 attendance has been updated using full 28-day Clubworx attendance.</li>
+                  <li>Week 3 attendance has been cross-checked.</li>
+                  <li>Week 1 and Week 2 attendance have been reviewed.</li>
+                  <li>Zero-attendance members have been investigated.</li>
+                  <li>Upcoming rollovers and required reach-outs are assigned or completed.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="sop-section">
+            <h4>Quality Standard</h4>
+            <ul>
+              <li>Every new member is recorded in Kickstarter Master.</li>
+              <li>Information matches Clubworx and Slack.</li>
+              <li>Attendance is accurate and current.</li>
+              <li>Members appear in the correct Reach Out bucket.</li>
+              <li>Week 3 and Week 4 members have been manually cross-checked.</li>
+              <li>Rollover opportunities are visible, follow-ups are documented, and no active member is missing.</li>
+            </ul>
+          </div>
+          <div class="sop-section">
+            <h4>Escalation Rules</h4>
+            <ul>
+              <li>Raise payment mismatches, unclear start dates, duplicate records, unverifiable attendance, complaints, cancellation concerns, unresolved payment issues, script errors, or incorrect reporting periods with Mel or the appropriate staff member.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div id="guide-daily-numbers" class="guide-card sop-card" data-category="daily">
+        <div class="sop-header">
+          <h3><i class="ti ti-chart-bar" aria-hidden="true"></i>Daily Numbers Check Spreadsheet SOP</h3>
+          <p>Daily procedure for checking rollovers, intro sales, straight-to-membership, cancellations, and net growth.</p>
+          <div class="guide-actions">
+            <a class="llink" href="https://docs.google.com/spreadsheets/d/1sqS2xjIz03pmcEqY2WEoK-jrrqveNF0-UNvAaXbOhRg/edit" target="_blank" rel="noopener"><i class="ti ti-external-link"></i> Open spreadsheet</a>
+          </div>
+        </div>
+        <div class="sop-body">
+          <div class="sop-section">
+            <h4>Purpose</h4>
+            <p>The Daily Numbers Check Spreadsheet provides a daily snapshot of Urban Muaythai's key membership numbers.</p>
+            <ul>
+              <li>Rollovers</li>
+              <li>Intro Sales</li>
+              <li>Straight to Membership</li>
+              <li>Cancellations</li>
+              <li>Net Growth</li>
+            </ul>
+            <div class="guide-note">Most of this spreadsheet is automated and pulls directly from the New Member Spreadsheet, so Kickstarter Master must stay accurate.</div>
+          </div>
+          <div class="sop-section">
+            <h4>Source Of Truth</h4>
+            <p>The Kickstarter Master tab in the New Member Spreadsheet is the primary source of data for the Daily Numbers Check Spreadsheet.</p>
+            <div class="guide-note">Incorrect or missing information in Kickstarter Master will create inaccurate Daily Numbers reporting.</div>
+          </div>
+          <div class="sop-section">
+            <h4>Spreadsheet Structure</h4>
+            <div class="sop-columns">
+              <ul>
+                <li><strong>Columns A-D:</strong> Date Information</li>
+                <li><strong>Columns E-I:</strong> Rollovers</li>
+                <li><strong>Columns J-N:</strong> Intro Sales</li>
+              </ul>
+              <ul>
+                <li><strong>Columns O-S:</strong> Straight to Membership</li>
+                <li><strong>Columns T-X:</strong> Cancellations</li>
+                <li><strong>Column Y:</strong> Net Growth</li>
+              </ul>
+            </div>
+          </div>
+          <div class="sop-section">
+            <h4>Rollovers</h4>
+            <p>Rollovers are automatically populated from Kickstarter Master.</p>
+            <ul>
+              <li>A member is counted only when Rollover Status is marked as Rolled Over.</li>
+              <li>A valid Rollover Date must be entered in Column P of Kickstarter Master.</li>
+              <li>If the rollover date is blank, the member will not appear in Daily Numbers.</li>
+            </ul>
+            <h5>Daily check</h5>
+            <ul>
+              <li>Confirm rolled-over members have current status.</li>
+              <li>Confirm Column P has the correct rollover date.</li>
+              <li>Check that no rollover date has been missed.</li>
+            </ul>
+          </div>
+          <div class="sop-section">
+            <h4>Intro Sales</h4>
+            <p>Intro Sales are generated automatically from Kickstarter Master and do not require manual updating.</p>
+            <ul>
+              <li>Confirm all new members have been added to Kickstarter Master.</li>
+              <li>Check that start dates are correct.</li>
+              <li>Check that Kickstarter type has been entered correctly.</li>
+            </ul>
+          </div>
+          <div class="sop-section">
+            <h4>Straight To Membership</h4>
+            <p>Straight to Membership figures are automatically generated from Kickstarter Master.</p>
+            <ul>
+              <li>A member is counted only when membership status is Straight to Membership.</li>
+              <li>A valid Rollover Date must be entered in Column P.</li>
+              <li>If there is no rollover date, the member will not appear in the report.</li>
+            </ul>
+            <h5>Daily check</h5>
+            <ul>
+              <li>Confirm Straight to Membership has been selected correctly.</li>
+              <li>Confirm Column P contains the correct rollover date.</li>
+            </ul>
+          </div>
+          <div class="sop-section">
+            <h4>Cancellations</h4>
+            <p>Cancellations are maintained inside the Daily Numbers Check Spreadsheet and must be refreshed manually.</p>
+            <h5>Updating cancellations</h5>
+            <ol>
+              <li>Open Clubworx.</li>
+              <li>Export the Cancellation Report.</li>
+              <li>Select the reporting period from 1 January of the current year through to the last day of the current month.</li>
+              <li>Download the report.</li>
+              <li>Open the Daily Numbers Check Spreadsheet.</li>
+              <li>Go to the Cancellation Raw Data tab.</li>
+              <li>Replace the existing data with the newly exported cancellation report.</li>
+              <li>Open the Urban Muaythai Sync menu.</li>
+              <li>Select Cancellation Sync and allow the script to finish.</li>
+            </ol>
+          </div>
+          <div class="sop-section">
+            <h4>Running The Daily Synchronisation</h4>
+            <ol>
+              <li>Open the Daily Numbers Check Spreadsheet.</li>
+              <li>Click the Urban Muaythai Sync menu.</li>
+              <li>Select Run Full Sync - Members + Cancellations.</li>
+              <li>Wait for the script to complete.</li>
+            </ol>
+            <p>The full sync refreshes Rollovers, Intro Sales, Straight to Membership, and Cancellations. Net Growth recalculates automatically.</p>
+          </div>
+          <div class="sop-section">
+            <h4>Net Growth</h4>
+            <p><strong>Net Growth = Rollovers + Straight to Membership - Cancellations</strong></p>
+            <div class="guide-note">No manual editing should be performed in this section.</div>
+          </div>
+          <div class="sop-section">
+            <h4>Daily Procedure</h4>
+            <ol>
+              <li>Ensure the New Member Spreadsheet has been fully updated.</li>
+              <li>Confirm new members, rollover statuses, Column P rollover dates, and Straight to Membership records are current.</li>
+              <li>Update the cancellation report from Clubworx if new cancellations have occurred.</li>
+              <li>Paste the latest cancellation export into the Cancellation Raw Data tab.</li>
+              <li>Run Cancellation Sync from the Urban Muaythai Sync menu.</li>
+              <li>Run Full Sync - Members + Cancellations.</li>
+              <li>Review rollovers, intro sales, straight-to-membership numbers, cancellations, and net growth.</li>
+              <li>Investigate unexpected changes before reporting numbers.</li>
+            </ol>
+          </div>
+          <div class="sop-section">
+            <h4>Daily Completion Checklist</h4>
+            <ul>
+              <li>New Member Spreadsheet has been updated.</li>
+              <li>All rollover dates have been entered into Column P.</li>
+              <li>Straight to Membership records include a rollover date.</li>
+              <li>Latest cancellation report has been exported from Clubworx.</li>
+              <li>Cancellation data has been pasted into the spreadsheet.</li>
+              <li>Cancellation Sync completed successfully.</li>
+              <li>Full Sync - Members + Cancellations has been run.</li>
+              <li>Rollovers, Intro Sales, Straight to Membership, Cancellations, and Net Growth have been reviewed for accuracy.</li>
+            </ul>
+          </div>
+          <div class="sop-section">
+            <h4>Quality Standard</h4>
+            <ul>
+              <li>All membership data reflects the latest information from the New Member Spreadsheet.</li>
+              <li>Cancellation data is current.</li>
+              <li>All synchronisation processes have completed successfully.</li>
+              <li>Net Growth is calculated automatically without manual adjustments.</li>
+              <li>The spreadsheet reflects the current day's membership performance.</li>
+            </ul>
+          </div>
+          <div class="sop-section">
+            <h4>Escalation Rules</h4>
+            <ul>
+              <li>Escalate missing rollovers, incorrect Column P dates, missing Straight to Membership figures, cancellation mismatches, sync failures, incorrect Net Growth, or mismatches with New Member Spreadsheet or Clubworx.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div id="guide-attendance-template" class="guide-card sop-card" data-category="weekly">
+        <div class="sop-header">
+          <h3><i class="ti ti-run" aria-hidden="true"></i>Attendance Past 7 Days SOP</h3>
+          <p>Monday procedure for duplicating the attendance template, importing Clubworx attendance, running Pipeline Party, and preparing Fringe Reach Out review.</p>
+          <div class="guide-actions">
+            <a class="llink" href="https://docs.google.com/spreadsheets/d/17anrXL7yGCbPhrbEXakBAG-7sZ0pRZBhbBkZFssU5Wg/edit?gid=1298296470#gid=1298296470" target="_blank" rel="noopener"><i class="ti ti-external-link"></i> Open template</a>
+          </div>
+        </div>
+        <div class="sop-body">
+          <div class="sop-section">
+            <h4>Purpose</h4>
+            <p>The Attendance Past 7 Days spreadsheet is used every Monday to identify members based on attendance over the previous seven days.</p>
+            <ul>
+              <li>Members at risk of becoming Red Flags</li>
+              <li>Fringe members requiring follow-up</li>
+              <li>Members who need coach review</li>
+              <li>Members requiring attendance encouragement</li>
+            </ul>
+            <div class="guide-note">This spreadsheet is also the primary source for the Fringe Reach Out process.</div>
+          </div>
+          <div class="sop-section">
+            <h4>Frequency</h4>
+            <p><strong>Every Monday</strong></p>
+          </div>
+          <div class="sop-section">
+            <h4>Required Tools</h4>
+            <ul>
+              <li>Clubworx</li>
+              <li>Attendance Past 7 Days Template</li>
+              <li>Google Drive</li>
+              <li>Pipeline Party Apps Script</li>
+            </ul>
+          </div>
+          <div class="sop-section">
+            <h4>Step 1 - Duplicate The Attendance Template</h4>
+            <ol>
+              <li>Open the Attendance Past 7 Days Template.</li>
+              <li>Select File, then Make a copy.</li>
+              <li>Rename the spreadsheet using: <strong>Urban Muaythai Attendance Past 7 Days - [Monday's Date]</strong>.</li>
+              <li>Example: <strong>Urban Muaythai Attendance Past 7 Days - 20 July 2026</strong>.</li>
+              <li>Save the copied spreadsheet inside the Fringe Reach Out folder.</li>
+            </ol>
+            <div class="guide-note">Saving in the correct folder keeps all weekly attendance files organised.</div>
+          </div>
+          <div class="sop-section">
+            <h4>Step 2 - Export Attendance From Clubworx</h4>
+            <ol>
+              <li>Open Clubworx.</li>
+              <li>Export the Attendance Past 7 Days report.</li>
+              <li>Download the report.</li>
+            </ol>
+            <div class="guide-note">Ensure the report contains attendance for the previous seven days only.</div>
+          </div>
+          <div class="sop-section">
+            <h4>Step 3 - Import The Attendance Data</h4>
+            <ol>
+              <li>Open the newly created Attendance Past 7 Days spreadsheet.</li>
+              <li>Navigate to the Raw Data tab.</li>
+              <li>Remove existing template data if required.</li>
+              <li>Copy the exported Clubworx attendance report.</li>
+              <li>Paste the data into the Raw Data tab.</li>
+            </ol>
+            <div class="guide-note">Confirm the entire report has pasted correctly before continuing.</div>
+          </div>
+          <div class="sop-section">
+            <h4>Step 4 - Run The Pipeline Party Script</h4>
+            <ol>
+              <li>Click the Pipeline Party menu at the top of the spreadsheet.</li>
+              <li>Select Run Pipeline Party.</li>
+              <li>Allow the script to complete.</li>
+            </ol>
+            <div class="guide-note">Do not edit the spreadsheet while the script is running.</div>
+          </div>
+          <div class="sop-section">
+            <h4>Step 5 - Review The Generated Tabs</h4>
+            <p>Once the script finishes, it automatically creates the attendance buckets.</p>
+            <div class="sop-columns">
+              <ul>
+                <li>0 Attendances</li>
+                <li>1 Attendance</li>
+                <li>2 Attendances</li>
+                <li>3 Attendances</li>
+              </ul>
+              <ul>
+                <li>4+ Attendances</li>
+                <li>Fringe Adults</li>
+                <li>Fringe Under 18</li>
+                <li>Needs Review</li>
+              </ul>
+            </div>
+          </div>
+          <div class="sop-section">
+            <h4>Step 6 - Review The Needs Review Tab</h4>
+            <p>Open the Needs Review tab before the spreadsheet is used by the team.</p>
+            <ul>
+              <li>Confirm there are no members remaining in Needs Review.</li>
+              <li>Investigate any issues.</li>
+              <li>Allocate members to the correct attendance bucket.</li>
+            </ul>
+            <div class="guide-note">The spreadsheet should only be used once the Needs Review tab has been cleared.</div>
+          </div>
+          <div class="sop-section">
+            <h4>Step 7 - Review The Fringe Tabs</h4>
+            <p>The primary focus after the script has completed is:</p>
+            <ul>
+              <li>Fringe Adults</li>
+              <li>Fringe Under 18</li>
+            </ul>
+            <div class="guide-note">These tabs identify members who may require proactive follow-up based on recent attendance.</div>
+          </div>
+          <div class="sop-section">
+            <h4>Spreadsheet Layout</h4>
+            <ul>
+              <li>Weekly Target</li>
+              <li>Seven-Day Attendance</li>
+              <li>Automatically generated attendance buckets</li>
+              <li>Fringe Adults</li>
+              <li>Fringe Under 18</li>
+              <li>Needs Review</li>
+            </ul>
+          </div>
+          <div class="sop-section">
+            <h4>Monday Completion Checklist</h4>
+            <ul>
+              <li>The Attendance Past 7 Days template has been duplicated.</li>
+              <li>The spreadsheet has been renamed using the correct Monday date.</li>
+              <li>The spreadsheet has been saved in the Fringe Reach Out folder.</li>
+              <li>The latest Attendance Past 7 Days report has been exported from Clubworx.</li>
+              <li>The attendance data has been pasted into the Raw Data tab.</li>
+              <li>Run Pipeline Party has been completed successfully.</li>
+              <li>All attendance buckets have been generated.</li>
+              <li>The Needs Review tab has been cleared.</li>
+              <li>Fringe Adults and Fringe Under 18 are ready for follow-up and assignment.</li>
+            </ul>
+          </div>
+          <div class="sop-section">
+            <h4>Quality Standard</h4>
+            <ul>
+              <li>All attendance data has been imported successfully.</li>
+              <li>The Pipeline Party script has completed without errors.</li>
+              <li>Attendance buckets have been generated correctly.</li>
+              <li>The Needs Review tab is empty.</li>
+              <li>Fringe Adults and Fringe Under 18 are ready for weekly follow-up.</li>
+              <li>The spreadsheet is saved in the correct Google Drive folder using the correct naming convention.</li>
+            </ul>
+          </div>
+          <div class="sop-section">
+            <h4>Escalation Rules</h4>
+            <ul>
+              <li>Escalate if the Clubworx export is incomplete or missing.</li>
+              <li>Escalate if Pipeline Party fails or finishes with errors.</li>
+              <li>Escalate if attendance buckets are not generated correctly.</li>
+              <li>Escalate if members remain in Needs Review and cannot be categorised.</li>
+              <li>Escalate if the spreadsheet is saved in the wrong folder or with the wrong naming convention.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div id="guide-dashboard" class="guide-card sop-card" data-category="weekly">
+        <div class="sop-header">
+          <h3><i class="ti ti-layout-dashboard" aria-hidden="true"></i>Weekly Dashboard SOP</h3>
+          <p>Friday procedure for updating the high-level Urban Muaythai performance dashboard across financial, marketing, sales, attendance, and retention metrics.</p>
+          <div class="guide-actions">
+            <a class="llink" href="https://docs.google.com/spreadsheets/d/1ztAhb2PP4f_Ui3EEwIaJQyH9Keuipq4g6wntuD92cLo/edit" target="_blank" rel="noopener"><i class="ti ti-external-link"></i> Open dashboard</a>
+          </div>
+        </div>
+        <div class="sop-body">
+          <div class="sop-section">
+            <h4>Purpose</h4>
+            <p>The Weekly Dashboard gives Urban Muaythai a single high-level view of business performance. It combines key metrics from Clubworx, Meta Ads, Daily Numbers, New Member tracking, and Cancellation Intelligence.</p>
+          </div>
+          <div class="sop-section">
+            <h4>Update Frequency</h4>
+            <ul>
+              <li>Update every Friday.</li>
+              <li>Complete after the source spreadsheets and attendance checks have been updated.</li>
+              <li>Use the completed dashboard as the reference point for the Friday report to Mel.</li>
+            </ul>
+          </div>
+          <div class="sop-section">
+            <h4>Data Sources</h4>
+            <div class="sop-columns">
+              <div>
+                <h5>Systems</h5>
+                <ul>
+                  <li>Clubworx</li>
+                  <li>Meta Ads Manager</li>
+                  <li>Google Ads Budget</li>
+                </ul>
+              </div>
+              <div>
+                <h5>Spreadsheets</h5>
+                <ul>
+                  <li>Daily Numbers Check Spreadsheet</li>
+                  <li>New Member Spreadsheet</li>
+                  <li>Cancellation Intelligence Spreadsheet</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="sop-section">
+            <h4>Financial Metrics</h4>
+            <h5>Rolling 30-Day Revenue</h5>
+            <ol>
+              <li>Open Clubworx.</li>
+              <li>Go to Financials, then open Takings.</li>
+              <li>Set the reporting period to the last four weeks.</li>
+              <li>Enter the total revenue into the dashboard.</li>
+            </ol>
+            <div class="guide-note">Confirm the reporting period covers the most recent four weeks before recording the revenue.</div>
+            <h5>Auto-Pay Members</h5>
+            <ul>
+              <li>Get the current number from Member Intelligence or the Clubworx Dashboard.</li>
+              <li>Enter the current Auto-Pay Member total into the dashboard.</li>
+            </ul>
+            <h5>Suspended Members</h5>
+            <ul>
+              <li>Get the current number from Member Intelligence or the Clubworx Dashboard.</li>
+              <li>Record the current suspended member total.</li>
+            </ul>
+          </div>
+          <div class="sop-section">
+            <h4>Marketing Metrics</h4>
+            <h5>Facebook Ad Spend</h5>
+            <ol>
+              <li>Open Meta Ads Manager.</li>
+              <li>Set the date range to Last 7 Days.</li>
+              <li>Record the total amount spent.</li>
+              <li>Enter the value into the dashboard.</li>
+            </ol>
+            <h5>Google Ads Budget</h5>
+            <ul>
+              <li>Record the weekly Google Ads budget.</li>
+              <li>Use $175 as the standard weekly budget unless the actual amount has changed.</li>
+            </ul>
+            <h5>Meta Paid Leads</h5>
+            <ol>
+              <li>Open Clubworx.</li>
+              <li>Navigate to Prospects.</li>
+              <li>Filter the report for the Last 7 Days.</li>
+              <li>Count all paid Meta leads and enter the total.</li>
+            </ol>
+            <h5>Organic Leads</h5>
+            <ul>
+              <li>Use Daily Numbers or the New Member Spreadsheet.</li>
+              <li>Include walk-ins and other non-paid enquiry sources.</li>
+              <li>Record the organic lead total.</li>
+            </ul>
+          </div>
+          <div class="sop-section">
+            <h4>Sales Metrics</h4>
+            <ul>
+              <li><strong>Intro Sales:</strong> record the current reporting week's total from Daily Numbers.</li>
+              <li><strong>Straight to Membership:</strong> record the total conversions from Daily Numbers.</li>
+              <li><strong>Sales Value:</strong> use the Weekly Rollover Report or New Member Spreadsheet.</li>
+              <li><strong>Rollovers:</strong> record the weekly rollover total from Daily Numbers.</li>
+              <li><strong>Rollover Percentage:</strong> record the weekly percentage from the New Member Spreadsheet.</li>
+            </ul>
+          </div>
+          <div class="sop-section">
+            <h4>Attendance And Retention Metrics</h4>
+            <h5>Weekly Attendance</h5>
+            <ol>
+              <li>Open Clubworx.</li>
+              <li>Navigate to the Attendance Report.</li>
+              <li>Record the total attendance for the reporting week.</li>
+              <li>Confirm Saturday attendance is included before entering the final figure.</li>
+            </ol>
+            <h5>Churn And Cancellations</h5>
+            <ul>
+              <li><strong>Churn:</strong> record weekly cancellations from Daily Numbers.</li>
+              <li><strong>Month-to-Date Cancellations:</strong> record the current total from Cancellation Intelligence.</li>
+            </ul>
+          </div>
+          <div class="sop-section">
+            <h4>Automatically Calculated Fields</h4>
+            <p>No manual entry is required for these fields, but they must be reviewed after the manual data has been entered.</p>
+            <ul>
+              <li>Average Cost Per Lead</li>
+              <li>Sales Conversion Percentage</li>
+              <li>Monthly Churn Percentage</li>
+              <li>Net Gain / Loss</li>
+            </ul>
+          </div>
+          <div class="sop-section">
+            <h4>Friday Update Procedure</h4>
+            <ol>
+              <li>Update financial information: Rolling 30-Day Revenue, Auto-Pay Members, and Suspended Members.</li>
+              <li>Update marketing metrics: Facebook Ad Spend, Google Ads Budget, Meta Paid Leads, and Organic Leads.</li>
+              <li>Update sales metrics: Intro Sales, Straight to Membership, Sales Value, Rollovers, and Rollover Percentage.</li>
+              <li>Update operational metrics: Weekly Attendance, Weekly Churn, and Month-to-Date Cancellations.</li>
+              <li>Review all automatically calculated fields and confirm the results appear reasonable.</li>
+            </ol>
+          </div>
+          <div class="sop-section">
+            <h4>Friday Completion Checklist</h4>
+            <div class="sop-columns">
+              <div>
+                <ul>
+                  <li>Rolling 30-Day Revenue uses the latest four-week period.</li>
+                  <li>Auto-Pay Members and Suspended Members are current.</li>
+                  <li>Facebook Ad Spend uses the last seven days.</li>
+                  <li>Google Ads Budget has been updated.</li>
+                  <li>Meta Paid Leads and Organic Leads have been counted.</li>
+                  <li>Intro Sales and Straight to Membership have been entered.</li>
+                </ul>
+              </div>
+              <div>
+                <ul>
+                  <li>Sales Value has been updated.</li>
+                  <li>Rollovers and Rollover Percentage have been entered.</li>
+                  <li>Weekly Attendance includes Saturday attendance.</li>
+                  <li>Weekly Churn has been updated.</li>
+                  <li>Month-to-Date Cancellations has been updated.</li>
+                  <li>Calculated fields have been reviewed for accuracy.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="sop-section">
+            <h4>Quality Standard</h4>
+            <ul>
+              <li>All manual metrics are updated from the correct source.</li>
+              <li>Every reporting period reflects the current week.</li>
+              <li>Automatically calculated fields display accurate results.</li>
+              <li>The dashboard gives an accurate snapshot of Urban Muaythai's financial, marketing, sales, and operational performance.</li>
+            </ul>
+          </div>
+          <div class="sop-section">
+            <h4>Escalation Rules</h4>
+            <ul>
+              <li>Escalate if Clubworx figures do not match Daily Numbers or the New Member Spreadsheet.</li>
+              <li>Escalate if Rolling 30-Day Revenue appears inconsistent with the selected reporting period.</li>
+              <li>Escalate if Meta Ads spending differs significantly from the expected budget.</li>
+              <li>Escalate if attendance totals appear incomplete or do not include Saturday.</li>
+              <li>Escalate if cancellation totals do not match the Cancellation Intelligence Spreadsheet.</li>
+              <li>Escalate if calculated fields appear incorrect after all manual data has been entered.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div id="guide-red-flag" class="guide-card sop-card" data-category="retention"><div class="sop-header"><h3><i class="ti ti-flag" aria-hidden="true"></i>Red Flag Reach Out Tracker SOP</h3><p>Every Monday: members with zero attendance in the last 7 days. Tracker ready before noon; Head Coach confirms messaging ownership and approach before sending.</p><div class="guide-actions"><a class="llink" href="https://docs.google.com/spreadsheets/d/13dWTKKcFx6yAHuaiqIyrGwe6Kaxt0HxOlnCxNVY7G9s/edit?gid=1625321934#gid=1625321934" target="_blank" rel="noopener">Open tracker</a><a class="llink" href="https://docs.google.com/document/d/14Tj-sZ8NHFd7-5o0KedCMqkcNOdkGoGBWl-uuxr7F8k/edit?tab=t.0" target="_blank" rel="noopener">Open source SOP</a><a class="llink" href="https://sites.google.com/urbanmuaythai.com/urban-muaythai/assistant-2-0/message-templates" target="_blank" rel="noopener">Approved message templates</a></div></div><div class="sop-body"><div class="sop-section"><h4>When and Who</h4><p>Every Monday. Tracker must be updated and available before 12:00PM. Head Coach assigns messaging ownership before any messages are sent.</p><p>Reception / Admin (extract reports, paste data, populate tracker). Head Coach (review list, remove members, assign messaging ownership).</p></div><div class="sop-section"><h4>Step 1 — Extract the Reports from Clubworx</h4><ul><li>Log into Clubworx and click Reports.</li><li>Search for Red Flag.</li><li>Download both reports:</li><li>Red Flag 7 Days (Adults)</li><li>Red Flag Kids Teams 7 Days (Kids &amp; Teens)</li><li>Complete this every Monday so the tracker is ready before 12:00PM.</li></ul><h4>Step 2 — Paste Data into the Tracker</h4><ul><li>Open the Urban Red Flag Reach-Out Tracker in Google Sheets.</li><li>Go to the “📥 Raw Data — Adults” tab. Delete last week’s data rows (keep the header row). Paste this week’s Red Flag 7 Days export.</li><li>Go to the “📥 Raw Data — Kids &amp; Teens” tab. Delete last week’s data rows. Paste this week’s Red Flag Kids Teams 7 Days export.</li><li>Click the red ▶ POPULATE ADULTS button on the weekly tracker tab. A new weekly tab is created automatically, named by Monday’s date.</li><li>Click the blue ▶ POPULATE KIDS &amp; TEENS button. Kids &amp; Teens are added to the same weekly tab.</li></ul><h4>Step 3 — Head Coach Reviews the List</h4><ul><li>Head Coach opens the ‘✅ Head Coach Review’ tab.</li><li>Review all members loaded for both Adults and Kids/Teens (Category column shows which is which).</li><li>Tick ☑ REMOVE on any member who should NOT receive a message this week — e.g. on holidays, known personal situation, or Thailand Tour combo.</li><li>Ticked rows turn red with strikethrough — easy to spot visually.</li><li>The summary row at the bottom shows: Total / Adults / Kids/Teens / To Remove / To Message.</li></ul><h4>Step 4 — Refresh the Tracker</h4><ul><li>After Head Coach completes their review, click the green 🔄 REFRESH AFTER REVIEW button.</li><li>The weekly tracker tab updates instantly — removed members are excluded automatically.</li><li>Confirm the tracker is ready before 12:00PM.</li></ul><h4>Step 5 — Head Coach Assigns Messaging Ownership</h4><ul><li>Head Coach reviews the weekly tracker tab and assigns a Messaging Owner in column L for each remaining member.</li><li>Do not send any message until the Messaging Owner and message approach are confirmed.</li><li>Repeat 🔴 members (column V = Yes) have been flagged in a previous week. Head Coach must confirm the approach before a standard template is used — these may need a more personalised message.</li><li>If a member needs a personalised approach, confirm this before the team sends.</li></ul><h4>Step 6 — Select and Send the Approved Message Template</h4><ul><li>Use approved Red Flag message templates only — Adults templates 1–9, Parents templates 1–5.</li><li>Choose the correct template based on whether the member is an adult or a parent/child contact.</li><li>Replace all placeholders before sending: [Name], [Parent’s name], [Child’s name].</li><li>Send via Clubworx SMS.</li><li>Log all reach-outs in the tracker: Reached Out By, Type, Replied?, Coming Back?</li></ul></div><div class="sop-section"><h4>Membership Exclusions &amp; Repeat Flags</h4><ul><li>Kickstarter (any) and Sponsored memberships are always excluded from the tracker and messages.</li><li>Thailand Tour is excluded only when it is the member’s sole membership. Members with another active membership are retained.</li><li>Respect all Head Coach removals. Repeat Red Flag members (column V) require the Head Coach’s confirmed approach.</li></ul></div><div class="sop-section"><h4>Completion Checklist</h4><ul><li>Both reports extracted every Monday: Red Flag 7 Days and Red Flag Kids Teams 7 Days.</li><li>Data pasted into the correct raw data tabs — old rows cleared before pasting.</li><li>POPULATE ADULTS and POPULATE KIDS &amp; TEENS both clicked. Weekly tab created automatically.</li><li>Head Coach reviews ✅ Head Coach Review tab and ticks ☑ REMOVE for any member to skip.</li><li>REFRESH AFTER REVIEW clicked after Head Coach sign-off. Removed members excluded from tracker.</li><li>Kickstarter and Sponsored members are automatically excluded — no manual action needed.</li><li>Thailand Tour (standalone only) members are automatically excluded.</li><li>Repeat 🔴 members (column V) are identified — Head Coach confirms approach before team sends.</li><li>Head Coach assigns Messaging Owner (column L) before any messages are sent.</li><li>Only approved Red Flag message templates are used. Placeholders replaced before sending.</li><li>Tracker updated and available before 12:00PM every Monday.</li></ul></div><div class="guide-note">Procedure checked against the linked Red Flag SOP on 3 October 2026. Use the Message Templates page for the exact approved wording.</div></div></div>
+      <div id="guide-orange-flag" class="guide-card sop-card" data-category="retention"><div class="sop-header"><h3><i class="ti ti-flag" aria-hidden="true"></i>Orange Flag Reach Out Tracker SOP</h3><p>Every Wednesday: members with zero sessions so far this week. Head Coach reviews 10:15–10:45am; send only after approval and refresh.</p><div class="guide-actions"><a class="llink" href="https://docs.google.com/spreadsheets/d/1Js8gSUreHs_B1OKAmGO_MkJzgLQhc8rNwiAcSt0Fo-4/edit?gid=554086618#gid=554086618" target="_blank" rel="noopener">Open tracker</a><a class="llink" href="https://docs.google.com/document/d/1TISibWPolDBBqOUiz6C3wtb2myu-2iUcS8wGSb8gS7o/edit?tab=t.0" target="_blank" rel="noopener">Open source SOP</a><a class="llink" href="https://sites.google.com/urbanmuaythai.com/urban-muaythai/assistant-2-0/message-templates" target="_blank" rel="noopener">Approved message templates</a></div></div><div class="sop-body"><div class="sop-section"><h4>When and Who</h4><p>Every Wednesday. Head Coach reviews list 10:15–10:45am. SMS messages sent after Head Coach sign-off. This is a standalone Wednesday task — independent of any other meeting or session.</p><p>Reception / Admin (export, paste, populate). Head Coach (review, removals &amp; Kickstarter calls).</p></div><div class="sop-section"><h4>Step 1 — Export from Clubworx</h4><ul><li>Log into Clubworx and go to the dashboard.</li><li>Click on the “M.I.A. Orange Flag” tile.</li><li>Export the report: select Export → CSV. It will be sent automatically to your email.</li><li>Open your email and download the report.</li></ul><h4>Step 2 — Paste into Raw Data Dump</h4><ul><li>Open the Orange Flag Tracker in Google Sheets.</li><li>Go to the “📥 Raw Data Dump” tab.</li><li>Delete last week’s data rows (keep the header row in row 2).</li><li>Paste this week’s Clubworx export starting from the first data row.</li></ul><h4>Step 3 — Populate the Weekly Tracker Tab</h4><ul><li>Go to the “📝 Weekly Tab Template” tab.</li><li>Click the orange ▶ POPULATE TRACKER button.</li><li>The script will automatically:</li><li>Create a new weekly tab named by this Wednesday’s date (e.g. “🟠 Orange Flag 21 May”)</li><li>Load eligible SMS members into the weekly tab</li><li>Load Kickstarter members into the 📞 Head Coach Call List tab</li><li>Auto-flag any Repeat 🟠 members who appeared in a previous week</li><li>Populate the ✅ Head Coach Review tab with checkboxes</li></ul><h4>Step 4 — Head Coach Reviews the List (10:15–10:45am)</h4><ul><li>Head Coach opens the “✅ Head Coach Review” tab.</li><li>Tick ☑ REMOVE on any member who should NOT receive an SMS today (e.g. on holidays, known situation, Thailand Tour standalone).</li><li>Ticked rows turn red with strikethrough — easy to spot visually.</li><li>The summary row shows: Total / To Remove / To Message.</li></ul><h4>Step 5 — Refresh After Head Coach Sign-Off</h4><ul><li>After Head Coach completes their review, click the green 🔄 REFRESH AFTER REVIEW button.</li><li>Removed members are excluded from the weekly tracker tab automatically.</li><li>Confirm the weekly tab is ready before messages are sent.</li><li> 12 Noon Approval Escalation - If you have not heard from the Head Coach by 12 noon regarding anyone who should be excluded from the Orange MIA message, do not send the SMS yet.</li><li>Before sending, reach out to the Operations Manager via Slack to confirm approval to proceed.</li></ul><h4>Step 6 — Head Coach Calls Kickstarter Members</h4><ul><li>Head Coach opens the “📞 Head Coach Call List” tab.</li><li>Calls each Kickstarter member personally — these members never receive an SMS.</li><li>Logs the call outcome in the Outcome column: Called - Coming In / Called - Not Coming / Left Voicemail / No Answer.</li></ul><h4>Step 7 — Send SMS to Remaining Members</h4><ul><li>Team sends a supportive SMS to all members in the weekly tracker tab.</li><li>Repeat 🟠 members (column P = Yes) appeared last week too. Consider escalating from SMS to a personal call. Head Coach to confirm approach.</li><li>Use one of the 5 approved SMS templates below. Replace [Name] with the member’s first name.</li><li>Log all reach-outs: Reached Out By, Type (SMS/Call/WhatsApp), Replied?, Coming Back?</li></ul></div><div class="sop-section"><h4>Membership Exclusions &amp; Repeat Flags</h4><ul><li>Kickstarter (Upfront &amp; Weekly) members: Head Coach calls only, never SMS.</li><li>Sponsored members: excluded entirely, no SMS or call.</li><li>Respect all Head Coach removals. Repeat Orange Flag members (column P) may need a personal call; Head Coach confirms the approach.</li></ul></div><div class="sop-section"><h4>Completion Checklist</h4><ul><li>Clubworx export downloaded and pasted into the 📥 Raw Data Dump tab. Old data rows cleared first.</li><li>POPULATE TRACKER button clicked. New weekly tab created and named by Wednesday’s date.</li><li>Kickstarter members automatically loaded into Head Coach Call List. Sponsored members excluded entirely.</li><li>Head Coach reviews ✅ Head Coach Review tab between 10:15–10:45am and ticks ☑ REMOVE on anyone to skip.</li><li>REFRESH AFTER REVIEW clicked after Head Coach sign-off. Removed members excluded from weekly tab.</li><li>Head Coach calls all Kickstarter members and logs outcomes in the 📞 Head Coach Call List tab.</li><li>Repeat 🟠 members (column P) reviewed — escalation to a personal call considered where appropriate.</li><li>All SMS reach-outs logged in the weekly tracker: Reached Out By, Type, Replied?, Coming Back?</li><li>This task is completed every Wednesday as a standalone task, independent of any other meeting.</li></ul></div><div class="guide-note">Procedure checked against the linked Orange Flag SOP on 3 October 2026. Use the Message Templates page for the exact approved wording.</div></div></div>
+      <div id="guide-member-intelligence" class="guide-card sop-card" data-category="intelligence">
+        <div class="sop-header">
+          <h3><i class="ti ti-brain" aria-hidden="true"></i>Member Intelligence Report SOP</h3>
+          <p>Procedure for refreshing Urban Muaythai's active membership breakdown by membership type, program, age group, and status.</p>
+          <div class="guide-actions">
+            <a class="llink" href="https://docs.google.com/spreadsheets/d/1XQ54GziC_SIZBU1ZxEY1HR6Ysonmr9AJTF9WXcT8UfM/edit?gid=1431893033#gid=1431893033" target="_blank" rel="noopener"><i class="ti ti-external-link"></i> Open report</a>
+          </div>
+        </div>
+        <div class="sop-body">
+          <div class="sop-section">
+            <h4>Purpose</h4>
+            <p>The Member Intelligence Report provides a complete breakdown of Urban Muaythai's active membership base. It automatically categorises members by membership type, program, age group, and status so the team can monitor the overall composition of the gym.</p>
+            <p>This report is updated whenever current membership data is required and is commonly used for weekly reporting and dashboard updates.</p>
+          </div>
+          <div class="sop-section">
+            <h4>Required Tools</h4>
+            <ul>
+              <li>Clubworx</li>
+              <li>Member Intelligence Spreadsheet</li>
+              <li>Apps Script</li>
+            </ul>
+          </div>
+          <div class="sop-section">
+            <h4>Data Sources</h4>
+            <p>The Member Intelligence Report uses two Clubworx exports as source data.</p>
+            <ul>
+              <li>Active Members Report</li>
+              <li>Suspended Members Report</li>
+            </ul>
+          </div>
+          <div class="sop-section">
+            <h4>Step 1 - Export The Active Members Report</h4>
+            <ol>
+              <li>Open Clubworx.</li>
+              <li>Navigate to the Reports section.</li>
+              <li>Export the Active Members report.</li>
+              <li>Download the report.</li>
+            </ol>
+            <div class="guide-note">This report contains all currently active members.</div>
+          </div>
+          <div class="sop-section">
+            <h4>Step 2 - Export The Suspended Members Report</h4>
+            <ol>
+              <li>In Clubworx, export the Suspended Members report.</li>
+              <li>Download the report.</li>
+            </ol>
+            <div class="guide-note">This report contains all members currently on suspension.</div>
+          </div>
+          <div class="sop-section">
+            <h4>Step 3 - Update The Raw Data Tabs</h4>
+            <p>Open the Member Intelligence Spreadsheet and paste the exported reports into their matching tabs.</p>
+            <ul>
+              <li>Raw Data - Active Members export</li>
+              <li>Raw Suspensions - Suspended Members export</li>
+            </ul>
+            <div class="guide-note">Replace the previous data with the latest exports before running the refresh.</div>
+          </div>
+          <div class="sop-section">
+            <h4>Step 4 - Refresh The Report</h4>
+            <ol>
+              <li>Click the Urban MT menu.</li>
+              <li>Select Refresh All Tabs.</li>
+              <li>Allow the script to complete.</li>
+            </ol>
+            <div class="guide-note">Do not edit the spreadsheet while the script is running.</div>
+          </div>
+          <div class="sop-section">
+            <h4>Step 5 - Review The Generated Reports</h4>
+            <p>Once the refresh is complete, the spreadsheet automatically updates all reporting tabs and summary figures. No manual calculations are required.</p>
+            <div class="sop-columns">
+              <div>
+                <ul>
+                  <li>Auto-Pay Breakdown</li>
+                  <li>Loyal Members</li>
+                  <li>New Members</li>
+                  <li>Under 18 (Kids &amp; Teens)</li>
+                  <li>Member Roster</li>
+                  <li>Auto-Pay Members</li>
+                </ul>
+              </div>
+              <div>
+                <ul>
+                  <li>Trial Members</li>
+                  <li>Suspended Members</li>
+                  <li>Front-End Memberships</li>
+                  <li>Other Membership Types</li>
+                  <li>Product Breakdown</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="sop-section">
+            <h4>Using The Report</h4>
+            <ul>
+              <li>Update the Weekly Dashboard.</li>
+              <li>Verify Auto-Pay Member totals.</li>
+              <li>Verify Suspended Member totals.</li>
+              <li>Review membership composition.</li>
+              <li>Monitor trial and front-end memberships.</li>
+              <li>Analyse membership product distribution.</li>
+            </ul>
+          </div>
+          <div class="sop-section">
+            <h4>Completion Checklist</h4>
+            <div class="sop-columns">
+              <div>
+                <ul>
+                  <li>The latest Active Members report has been exported from Clubworx.</li>
+                  <li>The latest Suspended Members report has been exported from Clubworx.</li>
+                  <li>The Active Members report has been pasted into the Raw Data tab.</li>
+                  <li>The Suspended Members report has been pasted into the Raw Suspensions tab.</li>
+                </ul>
+              </div>
+              <div>
+                <ul>
+                  <li>Refresh All Tabs has been run successfully.</li>
+                  <li>All reporting tabs have updated without errors.</li>
+                  <li>Auto-Pay Members and Suspended Members match the latest Clubworx figures.</li>
+                  <li>All summary reports display current information.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="sop-section">
+            <h4>Quality Standard</h4>
+            <ul>
+              <li>Both raw data exports have been updated.</li>
+              <li>The refresh script has completed successfully.</li>
+              <li>All report tabs display current information.</li>
+              <li>Membership categories accurately reflect the latest Clubworx data.</li>
+              <li>The report is ready to support weekly reporting and dashboard updates.</li>
+            </ul>
+          </div>
+          <div class="sop-section">
+            <h4>Escalation Rules</h4>
+            <ul>
+              <li>Escalate if the Active Members or Suspended Members report cannot be exported from Clubworx.</li>
+              <li>Escalate if the raw data cannot be imported into the spreadsheet.</li>
+              <li>Escalate if Refresh All Tabs fails to complete.</li>
+              <li>Escalate if report totals do not match Clubworx.</li>
+              <li>Escalate if Auto-Pay or Suspended Member counts appear incorrect.</li>
+              <li>Escalate if any reporting tab fails to populate after the refresh.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div id="guide-cancellation-intelligence" class="guide-card sop-card" data-category="intelligence">
+        <div class="sop-header">
+          <h3><i class="ti ti-user-x" aria-hidden="true"></i>Cancellation Analysis Spreadsheet SOP</h3>
+          <p>Procedure for refreshing year-to-date cancellation data, rebuilding cancellation reports, and supporting churn and retention analysis.</p>
+          <div class="guide-actions">
+            <a class="llink" href="https://docs.google.com/spreadsheets/d/1GTl8AV8nsBo2ZjdGeSwpVOytQZHs0POdkNBQ4iQZrEE/edit?gid=37903069#gid=37903069" target="_blank" rel="noopener"><i class="ti ti-external-link"></i> Open report</a>
+          </div>
+        </div>
+        <div class="sop-body">
+          <div class="sop-section">
+            <h4>Purpose</h4>
+            <p>The Cancellation Analysis Spreadsheet monitors and analyses member cancellations across the year. It provides insight into cancellation trends, churn rates, and weekly and monthly reporting so the team can identify patterns and make informed retention decisions.</p>
+            <p>The spreadsheet is refreshed using the latest cancellation data exported from Clubworx.</p>
+          </div>
+          <div class="sop-section">
+            <h4>Required Tools</h4>
+            <ul>
+              <li>Clubworx</li>
+              <li>Cancellation Analysis Spreadsheet</li>
+              <li>Apps Script</li>
+            </ul>
+          </div>
+          <div class="sop-section">
+            <h4>Data Source</h4>
+            <p>The Cancellation Analysis Spreadsheet uses one Clubworx export as the source of truth for all cancellation reporting and analysis.</p>
+            <ul>
+              <li>Cancellation Report</li>
+            </ul>
+          </div>
+          <div class="sop-section">
+            <h4>Step 1 - Export The Cancellation Report</h4>
+            <ol>
+              <li>Open Clubworx.</li>
+              <li>Navigate to the Cancellation Report.</li>
+              <li>Set the reporting period from 1 January of the current year to the last day of the current month.</li>
+              <li>Export the report.</li>
+              <li>Download the file.</li>
+            </ol>
+            <div class="guide-note">Example: if the current month is July, use 1 January - 31 July.</div>
+            <div class="guide-note">Always export from the beginning of the current year through to the end of the current month so the spreadsheet contains a complete year-to-date dataset.</div>
+          </div>
+          <div class="sop-section">
+            <h4>Step 2 - Update The Raw Cancellation Data</h4>
+            <ol>
+              <li>Open the Cancellation Analysis Spreadsheet.</li>
+              <li>Navigate to the Raw Cancellations tab.</li>
+              <li>Replace the existing data with the latest Clubworx cancellation export.</li>
+            </ol>
+            <div class="guide-note">Ensure the full report has been pasted before continuing.</div>
+          </div>
+          <div class="sop-section">
+            <h4>Step 3 - Refresh The Spreadsheet</h4>
+            <ol>
+              <li>Click the Urban MT Cancellations menu.</li>
+              <li>Select Refresh All Categories and Rebuild All Tabs.</li>
+              <li>Wait for the script to complete.</li>
+            </ol>
+            <div class="guide-note">Do not edit the spreadsheet while the refresh is running.</div>
+          </div>
+          <div class="sop-section">
+            <h4>Step 4 - Review The Reports</h4>
+            <p>Once the script has completed, the spreadsheet automatically rebuilds all reporting tabs from the latest cancellation data.</p>
+            <ul>
+              <li>Cancellation Analysis</li>
+              <li>Cancellations by Reporting Period</li>
+              <li>Cancellations by Month</li>
+              <li>Churn Analysis</li>
+            </ul>
+          </div>
+          <div class="sop-section">
+            <h4>Using The Report</h4>
+            <ul>
+              <li>Monitor weekly and monthly cancellation trends.</li>
+              <li>Track month-to-date cancellations.</li>
+              <li>Analyse churn over time.</li>
+              <li>Support the Weekly Dashboard.</li>
+              <li>Identify recurring cancellation patterns.</li>
+              <li>Assist with member retention planning.</li>
+            </ul>
+          </div>
+          <div class="sop-section">
+            <h4>Completion Checklist</h4>
+            <div class="sop-columns">
+              <div>
+                <ul>
+                  <li>The latest Cancellation Report has been exported from Clubworx.</li>
+                  <li>The reporting period covers 1 January through to the last day of the current month.</li>
+                  <li>The report has been pasted into the Raw Cancellations tab.</li>
+                  <li>Refresh All Categories and Rebuild All Tabs has been run successfully.</li>
+                </ul>
+              </div>
+              <div>
+                <ul>
+                  <li>The Cancellation Analysis tab has updated correctly.</li>
+                  <li>The Cancellations by Reporting Period report has refreshed.</li>
+                  <li>The Cancellations by Month report has refreshed.</li>
+                  <li>The Churn Analysis report has refreshed.</li>
+                  <li>All figures appear consistent with the latest Clubworx export.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="sop-section">
+            <h4>Quality Standard</h4>
+            <ul>
+              <li>The latest year-to-date cancellation data has been imported.</li>
+              <li>All reporting tabs have been successfully rebuilt.</li>
+              <li>Cancellation totals match the latest Clubworx export.</li>
+              <li>Weekly, monthly, and churn reporting accurately reflects the current reporting period.</li>
+              <li>The spreadsheet is ready to support operational reporting and business decision-making.</li>
+            </ul>
+          </div>
+          <div class="sop-section">
+            <h4>Escalation Rules</h4>
+            <ul>
+              <li>Escalate if the Cancellation Report cannot be exported from Clubworx.</li>
+              <li>Escalate if the reporting period is incorrect or incomplete.</li>
+              <li>Escalate if the raw data cannot be imported into the spreadsheet.</li>
+              <li>Escalate if Refresh All Categories and Rebuild All Tabs fails to complete.</li>
+              <li>Escalate if cancellation totals do not match Clubworx.</li>
+              <li>Escalate if any reporting tab fails to refresh or displays incorrect information.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div id="guide-class-attendance" class="guide-card sop-card" data-category="weekly">
+        <div class="sop-header">
+          <h3><i class="ti ti-calendar-stats" aria-hidden="true"></i>Automated Class Attendance Tracker SOP</h3>
+          <p>Simple procedure for importing the Clubworx Event Attendances report, updating the January-to-December class tabs, and preparing the weekly red-class report.</p>
+          <div class="guide-actions">
+            <a class="llink" href="https://docs.google.com/spreadsheets/d/1iDbOP_QusHs15yA-V5lvvpAN-psUw-9716pWLXLt1yg/edit?gid=1039888359#gid=1039888359" target="_blank" rel="noopener"><i class="ti ti-external-link"></i> Open tracker</a>
+          </div>
+        </div>
+        <div class="sop-body">
+          <div class="sop-section">
+            <h4>Purpose</h4>
+            <p>The Automated Class Attendance Tracker keeps the full 2026 class-attendance record in one place. It shows how many people booked, attended, or were absent and highlights classes that may need attention.</p>
+            <p>The Admin/Assistant imports one Clubworx report and runs the sync. The monthly tabs and Dashboard then update automatically.</p>
+          </div>
+          <div class="sop-section">
+            <h4>What Each Tab Is For</h4>
+            <ul>
+              <li><strong>Dashboard:</strong> the main management view for day, week, and month totals.</li>
+              <li><strong>January-December:</strong> each class, coach, attendance number, and colour result.</li>
+              <li><strong>Raw Import:</strong> where the latest Clubworx CSV data is pasted.</li>
+              <li><strong>Analytics Data:</strong> background calculations; do not edit this tab.</li>
+              <li><strong>Sync Log:</strong> classes the automation could not match or update.</li>
+              <li><strong>Settings:</strong> reporting and tracker settings.</li>
+              <li><strong>README:</strong> the short reference guide.</li>
+            </ul>
+          </div>
+          <div class="sop-section">
+            <h4>Update Frequency</h4>
+            <ul>
+              <li>Update before preparing the weekly red-class report.</li>
+              <li>Update whenever management needs the latest class-attendance figures.</li>
+              <li>The official reporting week runs from <strong>Friday to Thursday</strong>.</li>
+            </ul>
+          </div>
+          <div class="sop-section">
+            <h4>Step 1 - Export From Clubworx</h4>
+            <ol>
+              <li>Open Clubworx.</li>
+              <li>Open the <strong>Event Attendances</strong> report.</li>
+              <li>Select the required date range, including all new classes that need to be added.</li>
+              <li>Export the report as the original CSV file.</li>
+            </ol>
+            <div class="guide-note">Use the original CSV. Do not copy dates from a narrow spreadsheet column displaying ########.</div>
+          </div>
+          <div class="sop-section">
+            <h4>Step 2 - Replace The Raw Import</h4>
+            <ol>
+              <li>Open the Automated Class Attendance Tracker.</li>
+              <li>Open the <strong>Raw Import</strong> tab.</li>
+              <li>Replace the old Clubworx data with the latest CSV, starting at cell A1.</li>
+              <li>Keep the original Clubworx headings and do not rearrange the columns.</li>
+            </ol>
+          </div>
+          <div class="sop-section">
+            <h4>Step 3 - Run The Automation</h4>
+            <ol>
+              <li>Click the <strong>Attendance Sync</strong> menu at the top of the spreadsheet.</li>
+              <li>Select <strong>Sync attendance now</strong>.</li>
+              <li>Wait for the confirmation message.</li>
+              <li>Note the number of classes written, flagged, or unmatched.</li>
+            </ol>
+            <div class="guide-note">Do not edit the spreadsheet while the sync is running. The Admin/Assistant should not manually type attendance into the January-December tabs.</div>
+          </div>
+          <div class="sop-section">
+            <h4>Step 4 - Check The Sync Log</h4>
+            <ol>
+              <li>Open the <strong>Sync Log</strong> tab.</li>
+              <li>Review any flagged or unmatched classes.</li>
+              <li>Check the class date, time, name, and coach against Clubworx.</li>
+              <li>Resolve or escalate anything that cannot be matched confidently.</li>
+            </ol>
+          </div>
+          <div class="sop-section">
+            <h4>How To Use The Dashboard</h4>
+            <ol>
+              <li>Open the <strong>Dashboard</strong> tab.</li>
+              <li>Change the <strong>Selected Date</strong> to the date you want to review.</li>
+              <li>Read the Day, Week, and Month totals for Booked, Attended, and Absent.</li>
+              <li>Remember that Week follows the Urban Muay Thai reporting period: Friday through Thursday.</li>
+            </ol>
+            <ul>
+              <li><strong>Booked:</strong> the number of places booked in Clubworx.</li>
+              <li><strong>Attended:</strong> the number of people who came to class.</li>
+              <li><strong>Absent:</strong> booked members who did not attend.</li>
+            </ul>
+          </div>
+          <div class="sop-section">
+            <h4>Understanding The Class Colours</h4>
+            <ul>
+              <li><strong>Red:</strong> attendance is at or below the minimum target for that class and time.</li>
+              <li><strong>Yellow:</strong> attendance is moderate and should be watched.</li>
+              <li><strong>Green:</strong> attendance is above the expected target.</li>
+            </ul>
+            <div class="guide-note">A red class does not always mean there were many no-shows. It can simply mean the class received too few bookings. Check Booked and Absent before explaining the result.</div>
+          </div>
+          <div class="sop-section">
+            <h4>Weekly Red-Class Report</h4>
+            <ol>
+              <li>Use the completed Friday-to-Thursday reporting period.</li>
+              <li>Review the relevant monthly tab and list every class shown in red.</li>
+              <li>Include the date, time, class, coach, bookings, attendance, and absences.</li>
+              <li>Summarise recurring class types or time slots and whether the issue was low bookings or no-shows.</li>
+              <li>Send the checked results to Mel.</li>
+            </ol>
+          </div>
+          <div class="sop-section">
+            <h4>Completion Checklist</h4>
+            <div class="sop-columns">
+              <div>
+                <ul>
+                  <li>The latest Event Attendances CSV has been exported.</li>
+                  <li>Raw Import contains the original headings and complete data.</li>
+                  <li>Sync attendance now completed successfully.</li>
+                  <li>The correct Friday-to-Thursday reporting period is selected.</li>
+                </ul>
+              </div>
+              <div>
+                <ul>
+                  <li>The Dashboard displays day, week, and month totals.</li>
+                  <li>January-December tabs show updated attendance.</li>
+                  <li>The Sync Log has been reviewed.</li>
+                  <li>All red classes have been checked before reporting.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="sop-section">
+            <h4>Escalation Rules</h4>
+            <ul>
+              <li>Escalate if the Clubworx CSV cannot be exported or has missing columns.</li>
+              <li>Escalate if the Attendance Sync menu or script does not run.</li>
+              <li>Escalate if Dashboard totals remain blank or zero after a successful import.</li>
+              <li>Escalate if classes appear in the Sync Log and cannot be matched.</li>
+              <li>Escalate if monthly attendance does not agree with Clubworx.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div id="guide-attendance-dashboard" class="guide-card sop-card" data-category="weekly">
+        <div class="sop-header">
+          <h3><i class="ti ti-activity" aria-hidden="true"></i>Attendance Dashboard SOP</h3>
+          <p>Procedure for verifying the live attendance dashboard, confirming weekly attendance data, and checking Needs Review before reporting or follow-up.</p>
+          <div class="guide-actions">
+            <a class="llink" href="https://docs.google.com/spreadsheets/d/18HwscvcNu46EyS5TEREdPbi_hatdeeoaGCEJt3LQ0vA/edit?usp=sharing" target="_blank" rel="noopener"><i class="ti ti-external-link"></i> Open dashboard</a>
+          </div>
+        </div>
+        <div class="sop-body">
+          <div class="sop-section">
+            <h4>Purpose</h4>
+            <p>The Attendance Dashboard provides a live overview of member attendance trends across Urban Muaythai. It automatically reads data from the weekly Attendance Past 7 Days spreadsheets and presents attendance metrics in a central dashboard.</p>
+            <p>The dashboard is primarily used to monitor attendance performance, identify members requiring review, and support the weekly Fringe Reach Out process.</p>
+          </div>
+          <div class="sop-section">
+            <h4>Update Frequency</h4>
+            <ul>
+              <li>Automatically refreshes every day at 7:00 AM.</li>
+              <li>Every Monday, verify that the latest attendance data has updated successfully.</li>
+            </ul>
+          </div>
+          <div class="sop-section">
+            <h4>Source Of Truth</h4>
+            <p>The Attendance Dashboard automatically reads its data from the Fringe Reach Out Google Drive folder. This folder contains the weekly Attendance Past 7 Days spreadsheets.</p>
+            <p>It is essential that the latest Attendance Past 7 Days spreadsheet is:</p>
+            <ul>
+              <li>Saved in the correct Fringe Reach Out folder.</li>
+              <li>Named correctly.</li>
+              <li>Fully processed before the dashboard refreshes.</li>
+            </ul>
+            <div class="guide-note">If the weekly attendance spreadsheet is not in the correct folder, the Attendance Dashboard will not update correctly.</div>
+          </div>
+          <div class="sop-section">
+            <h4>Automatic Refresh</h4>
+            <p>The Attendance Dashboard is configured to refresh automatically every morning at 7:00 AM. Normally, no manual action is required.</p>
+          </div>
+          <div class="sop-section">
+            <h4>Monday Verification</h4>
+            <p>Every Monday, after completing the Attendance Past 7 Days process, verify that the Attendance Dashboard has updated successfully.</p>
+            <ul>
+              <li>The latest attendance figures are displaying.</li>
+              <li>Member counts appear correct.</li>
+              <li>Dashboard totals match the current Attendance Past 7 Days spreadsheet.</li>
+              <li>No obvious data is missing.</li>
+            </ul>
+          </div>
+          <div class="sop-section">
+            <h4>Manual Refresh</h4>
+            <p>If the dashboard has not updated automatically:</p>
+            <ol>
+              <li>Open the Attendance Dashboard.</li>
+              <li>Click the Dashboard Tools menu.</li>
+              <li>Select Refresh Now.</li>
+              <li>Allow the script to complete.</li>
+            </ol>
+            <div class="guide-note">The dashboard reloads the latest attendance data from the Fringe Reach Out folder.</div>
+          </div>
+          <div class="sop-section">
+            <h4>Needs Review</h4>
+            <ol>
+              <li>Open the Needs Review section.</li>
+              <li>Review all members listed.</li>
+              <li>Identify any records requiring investigation or correction.</li>
+            </ol>
+            <p>Examples may include:</p>
+            <ul>
+              <li>Members with missing attendance data.</li>
+              <li>Members that could not be categorised automatically.</li>
+              <li>Data inconsistencies between attendance reports.</li>
+              <li>Members requiring manual verification.</li>
+            </ul>
+            <div class="guide-note">Investigate and resolve any issues before using the dashboard for reporting or follow-up activities.</div>
+          </div>
+          <div class="sop-section">
+            <h4>Monday Completion Checklist</h4>
+            <div class="sop-columns">
+              <div>
+                <ul>
+                  <li>The latest Attendance Past 7 Days spreadsheet has been saved in the Fringe Reach Out folder.</li>
+                  <li>The dashboard has refreshed successfully.</li>
+                  <li>Attendance figures match the latest weekly attendance spreadsheet.</li>
+                </ul>
+              </div>
+              <div>
+                <ul>
+                  <li>If required, Refresh Now has been run from the Dashboard Tools menu.</li>
+                  <li>The Needs Review section has been checked.</li>
+                  <li>Outstanding review items have been investigated or resolved.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="sop-section">
+            <h4>Quality Standard</h4>
+            <ul>
+              <li>The latest attendance data has been successfully loaded.</li>
+              <li>Dashboard figures accurately reflect the current Attendance Past 7 Days spreadsheet.</li>
+              <li>All automatic calculations have updated correctly.</li>
+              <li>The Needs Review section has been checked and outstanding issues have been addressed.</li>
+              <li>The dashboard is ready to support weekly attendance reporting and member follow-up.</li>
+            </ul>
+          </div>
+          <div class="sop-section">
+            <h4>Escalation Rules</h4>
+            <ul>
+              <li>Escalate if the dashboard fails to refresh automatically.</li>
+              <li>Escalate if Refresh Now fails to complete.</li>
+              <li>Escalate if the latest Attendance Past 7 Days spreadsheet is not recognised.</li>
+              <li>Escalate if dashboard figures do not match the latest attendance report.</li>
+              <li>Escalate if the Needs Review section contains unresolved issues that cannot be corrected.</li>
+              <li>Escalate if the dashboard displays missing or incomplete attendance data.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+</main>
+<footer class="wrap"><p><b>Urban Muaythai — Spreadsheet Guides.</b> One Team, One Fight. · Open the guide you need, or use a link like <code>#guide-red-flag</code> to jump straight to one.</p></footer>
+<script>
+function prefersReducedMotion(){return window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;}
+function scrollToTop(){window.scrollTo({top:0,behavior:prefersReducedMotion()?'auto':'smooth'});}
+
+function setGuideExpanded(card,expanded){
+  if(!card) return;
+  card.classList.toggle('is-collapsed',!expanded);
+  const button=card.querySelector('.sop-toggle');
+  if(button){
+    button.setAttribute('aria-expanded',String(expanded));
+    button.innerHTML='<i class="ti ti-chevron-down" aria-hidden="true"></i>'+(expanded?'Collapse guide':'Expand guide');
+  }
+}
+function toggleGuide(button){
+  const card=button.closest('.sop-card');
+  setGuideExpanded(card,card.classList.contains('is-collapsed'));
+}
+function showAllGuides(){
+  document.getElementById('guide-status').textContent=document.querySelectorAll('.sop-card[data-category]').length+' guides shown';
+  document.querySelectorAll('.sop-card[data-category]').forEach(card=>{card.style.display='block';});
+  document.querySelectorAll('.guide-category-card').forEach(card=>{
+    card.style.opacity='1';card.style.borderColor='var(--line)';card.setAttribute('aria-pressed','false');
+  });
+}
+function filterGuideCategory(category){
+  const cards=document.querySelectorAll('[data-category]');
+  const categoryCards=document.querySelectorAll('.guide-category-card');
+  cards.forEach(card=>{card.style.display=(card.dataset.category===category)?'block':'none';});
+  categoryCards.forEach(card=>{card.style.opacity='0.55';card.style.borderColor='var(--line)';});
+  document.getElementById('guide-status').textContent=Array.from(cards).filter(card=>card.dataset.category===category).length+' guides shown';
+  categoryCards.forEach(card=>card.setAttribute('aria-pressed',String(card.dataset.filter===category)));
+  const categoryNames={daily:'Daily Tasks',weekly:'Weekly Reports',retention:'Retention',intelligence:'Intelligence'};
+  const activeBtn=Array.from(categoryCards).find(btn=>btn.querySelector('.guide-category-title').textContent===categoryNames[category]);
+  if(activeBtn){activeBtn.style.opacity='1';activeBtn.style.borderColor='var(--red)';}
+}
+function initializeGuideControls(){
+  document.querySelectorAll('.sop-card').forEach((card,index)=>{
+    const body=card.querySelector('.sop-body');
+    const header=card.querySelector('.sop-header');
+    if(!body||!header||header.querySelector('.sop-toggle')) return;
+    if(!body.id) body.id='sop-body-'+index;
+    const button=document.createElement('button');
+    button.type='button';button.className='sop-toggle';
+    button.setAttribute('aria-controls',body.id);
+    button.setAttribute('onclick','toggleGuide(this)');
+    header.appendChild(button);
+    const footer=document.createElement('div');
+    footer.className='sop-footer';
+    footer.innerHTML='<button type="button" class="guide-back-top" onclick="scrollToTop()"><i class="ti ti-arrow-up" aria-hidden="true"></i>Back to top</button>';
+    card.appendChild(footer);
+    setGuideExpanded(card,false);
+  });
+  if(!document.querySelector('.back-to-top')){
+    const backToTop=document.createElement('button');
+    backToTop.type='button';backToTop.className='back-to-top';
+    backToTop.setAttribute('aria-label','Back to top of page');
+    backToTop.innerHTML='<i class="ti ti-arrow-up" aria-hidden="true"></i>Back to top';
+    backToTop.addEventListener('click',scrollToTop);
+    document.body.appendChild(backToTop);
+  }
+}
+function openGuideFromHash(){
+  const hash=window.location.hash.slice(1);
+  if(hash){
+    const section=document.getElementById(hash);
+    if(section && section.classList.contains('sop-card')){
+      showAllGuides();
+      document.querySelectorAll('.sop-card').forEach(card=>setGuideExpanded(card,card===section));
+      setTimeout(()=>section.scrollIntoView({behavior:prefersReducedMotion()?'auto':'smooth',block:'start'}),50);
+    }
+  }
+}
+window.addEventListener('load',()=>{initializeGuideControls();showAllGuides();openGuideFromHash();});
+window.addEventListener('hashchange',openGuideFromHash);
+</script>
+</body>
+</html>
