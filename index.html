@@ -158,7 +158,7 @@ footer{border-top:1px solid var(--line);padding:22px 0 34px;color:var(--muted-2)
         <div class="guide-category-icon"><i class="ti ti-brain" aria-hidden="true"></i></div>
         <div class="guide-category-title">Intelligence</div>
         <div class="guide-category-desc">Member & data analysis</div>
-        <div class="guide-category-count">3 guides</div>
+        <div class="guide-category-count">4 guides</div>
       </div>
     </div>
     <div class="sec-head"><i class="ti ti-book-2" aria-hidden="true"></i><h2>Complete SOPs & Guides</h2></div>
@@ -861,6 +861,35 @@ footer{border-top:1px solid var(--line);padding:22px 0 34px;color:var(--muted-2)
           <div class="sop-section"><h4>Quick Completion Check</h4><ul>
             <li>The full latest export has replaced the old raw data.</li><li>Refresh All has completed.</li><li>New product names have been categorised and refreshed.</li><li>The intended period and Counted As At date are correct.</li><li>Data Health, Reconciles? and Members Check have been reviewed; investigate anything unexpected before reporting.</li>
           </ul></div>
+        </div>
+      </div>
+
+      <div id="guide-prospect-lead-intelligence" class="guide-card sop-card" data-category="intelligence">
+        <div class="sop-header"><h3><i class="ti ti-target-arrow" aria-hidden="true"></i>Prospect &amp; Lead Intelligence Guide</h3><p>Import all members and prospects from Clubworx, refresh the workbook, and review new leads, follow-ups and lead sources for a selected week.</p><div class="guide-actions"><a class="llink" href="https://docs.google.com/spreadsheets/d/1B4UI4XzwSWELYPF6Iy24LYIeBMv4AsqVusJutQWp3vk/edit?gid=0#gid=0" target="_blank" rel="noopener">Open Raw Data</a><a class="llink" href="https://docs.google.com/spreadsheets/d/1B4UI4XzwSWELYPF6Iy24LYIeBMv4AsqVusJutQWp3vk/edit?gid=627255432#gid=627255432" target="_blank" rel="noopener">Open Lead Dashboard</a></div></div>
+        <div class="sop-body">
+          <div class="sop-section"><h4>How to Update</h4><ol><li>Export <strong>all members and prospects</strong> from Clubworx. Include Member contacts so leads who have already converted are retained.</li><li>Open <strong>Raw Data</strong> and replace the previous export with the complete latest export, starting at <strong>A1</strong> with headers included. Keep the original column order.</li><li>Check that <strong>Contact ID</strong>, <strong>Contact Type</strong> and <strong>Contact Created Date</strong> are present. Include lead-source fields when available.</li><li>In <strong>Settings → Export as of (B6)</strong>, record the date and time the Clubworx export was run, in Brisbane time.</li><li>Use the <strong>🥊 Lead Dashboard</strong> menu to build / refresh the reports. Wait for the refresh to finish.</li><li>Check the refreshed dates and <strong>Data Issues</strong>, then select the week you want to review.</li></ol><div class="guide-note">Replace the old raw data rather than appending it. Raw Data may contain several membership rows per person; weekly lead counts use unique Contact IDs.</div></div>
+          <div class="sop-section"><h4>What Each Tab Is For</h4><ul>
+            <li><strong>Lead Dashboard:</strong> overview of new leads, Member contacts, prospects to chase, the pipeline, lead trend and follow-up view for the selected week.</li>
+            <li><strong>Raw Data:</strong> the full Clubworx export that feeds the reports. Update this before refreshing.</li>
+            <li><strong>Lead Sources:</strong> the selected week’s lead channels and sources, showing where leads came from. Check the week shown in its heading.</li>
+            <li><strong>Settings:</strong> source column names, contact types counted, export date/time and text-date order. The current date order is DMY.</li>
+            <li><strong>Data Issues:</strong> missing fields and other data checks. Resolve or explain warnings before quoting figures.</li>
+            <li><strong>Weekly Report:</strong> detailed counts for a chosen week, current statuses, available end-of-week status snapshots and the contacts behind the counts.</li>
+            <li><strong>Weekly Trend:</strong> a 12-week comparison of new leads, current Prospect/Member counts and website enquiries where source data is available.</li>
+            <li><strong>_LD_Data (hidden):</strong> internal supporting data for the reports. Leave this tab to the automation.</li>
+          </ul></div>
+          <div class="sop-section"><h4>How to Choose a Particular Week</h4><ol>
+            <li>On <strong>Lead Dashboard</strong>, choose the week from the dropdown in <strong>C4</strong>.</li><li>Tick <strong>G4 — Only show prospects still to chase</strong> when you want the follow-up view rather than all leads from that week.</li><li>On <strong>Weekly Report</strong>, use the dropdown in <strong>B3</strong>. Choose a listed week or <strong>Latest completed week</strong>. You can also type a date; the selector snaps to the Friday starting that week.</li><li>When comparing the Dashboard, Lead Sources and Weekly Report, confirm that their displayed week headings match.</li>
+          </ol></div>
+          <div class="sop-section"><h4>Understanding the Report Dates</h4><ul>
+            <li><strong>Reporting week:</strong> Friday 00:00 through Thursday 23:59, in <strong>Australia/Brisbane</strong> time.</li>
+            <li><strong>Contact Created Date:</strong> assigns each lead to a week. It is the enquiry/contact creation date, not the membership start or export date.</li>
+            <li><strong>Export as of:</strong> when the Clubworx data was captured. It dates status snapshots; it does not change which week a lead belongs to.</li>
+            <li><strong>Refreshed:</strong> when the workbook processed the data. Refreshing an older export does not make its contact statuses current.</li>
+            <li><strong>In progress:</strong> the current week is incomplete. Use the latest completed week for a full-week comparison.</li>
+            <li><strong>Prospect today / Member today:</strong> the selected week’s leads classified by the latest exported Contact Type. Member includes converted leads and people who joined directly; it is not necessarily conversion during that week.</li>
+            <li><strong>Status at end of week:</strong> requires a saved snapshot from before that week ended. “Not available” means no suitable snapshot exists; it does not mean zero leads.</li>
+          </ul><div class="guide-note">A website-enquiry value of n/a means the required lead-source data is unavailable, not that there were no website enquiries. Check Data Issues and the Settings source-column mapping.</div></div>
         </div>
       </div>
       <div id="guide-member-intelligence" class="guide-card sop-card" data-category="intelligence">
