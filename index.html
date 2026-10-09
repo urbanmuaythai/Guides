@@ -474,16 +474,30 @@ header.top{position:sticky;top:0;z-index:60;isolation:isolate;box-shadow:0 5px 1
               <li>Open the Daily Numbers Check Spreadsheet.</li>
               <li>Go to <strong>Cancellation Raw Dump</strong>. Clear the previous imported data in columns A–K, including any leftover rows from a longer export. Keep the tab and other report sheets.</li>
               <li>Paste the complete new CSV into <strong>A1</strong>, including headers. Replace the old import rather than appending to it.</li>
-              <li>Open the Urban Muaythai Sync menu.</li>
-              <li>Select Cancellation Sync and allow the script to finish.</li>
+              <li>Open the Urban MT Sync menu.</li>
+              <li>Select Run Cancellations Sync Only and allow the script to finish.</li>
             </ol>
+          </div>
+          <div class="sop-section">
+            <figure class="export-example">
+              <a href="assets/daily-numbers/step-4-raw-dump-tab.png" target="_blank" rel="noopener"><img src="assets/daily-numbers/step-4-raw-dump-tab.png" alt="Cancellation Raw Dump tab selected in Google Sheets" loading="lazy" width="495" height="43"></a>
+              <figcaption>Step 4a: select Cancellation Raw Dump at the bottom of the Daily Numbers spreadsheet.</figcaption>
+            </figure>
+            <figure class="export-example">
+              <a href="assets/daily-numbers/step-4-a1-import-location.png" target="_blank" rel="noopener"><img src="assets/daily-numbers/step-4-a1-import-location.png" alt="Daily Numbers spreadsheet with cell A1 selected and the CSV header row visible" loading="lazy" width="680" height="188"></a>
+              <figcaption>Step 4b: after clearing the previous import in A-K, paste the complete new CSV at A1, including its header row. A1 should contain Name; B1 should contain Membership.</figcaption>
+            </figure>
+            <figure class="export-example">
+              <a href="assets/daily-numbers/step-4-sync-options.png" target="_blank" rel="noopener"><img src="assets/daily-numbers/step-4-sync-options.png" alt="Urban MT Sync menu showing Run Cancellations Sync Only and Run Full Sync (Members + Cancellations + Dashboard)" loading="lazy" width="400" height="131"></a>
+              <figcaption>Step 4c: open Urban MT Sync and select Run Cancellations Sync Only. For the daily full refresh, select Run Full Sync (Members + Cancellations + Dashboard). Wait for each run to finish before continuing.</figcaption>
+            </figure>
           </div>
           <div class="sop-section">
             <h4>Running The Daily Synchronisation</h4>
             <ol>
               <li>Open the Daily Numbers Check Spreadsheet.</li>
-              <li>Click the Urban Muaythai Sync menu.</li>
-              <li>Select Run Full Sync - Members + Cancellations.</li>
+              <li>Click the Urban MT Sync menu.</li>
+              <li>Select Run Full Sync (Members + Cancellations + Dashboard).</li>
               <li>Wait for the script to complete.</li>
             </ol>
             <p>The full sync refreshes Rollovers, Intro Sales, Straight to Membership, and Cancellations. Net Growth recalculates automatically.</p>
@@ -500,8 +514,8 @@ header.top{position:sticky;top:0;z-index:60;isolation:isolate;box-shadow:0 5px 1
               <li>Confirm new members, rollover statuses, Column P rollover dates, and Straight to Membership records are current.</li>
               <li>Update the cancellation report from Clubworx if new cancellations have occurred.</li>
               <li>Export cancellations for <strong>1 January–31 December 2026</strong>, then replace the data in <strong>Cancellation Raw Dump</strong> from A1, including headers.</li>
-              <li>Run Cancellation Sync from the Urban Muaythai Sync menu.</li>
-              <li>Run Full Sync - Members + Cancellations.</li>
+              <li>Run Cancellations Sync Only from the Urban MT Sync menu.</li>
+              <li>Run Full Sync (Members + Cancellations + Dashboard).</li>
               <li>Review rollovers, intro sales, straight-to-membership numbers, cancellations, and net growth.</li>
               <li>Investigate unexpected changes before reporting numbers.</li>
             </ol>
@@ -514,8 +528,8 @@ header.top{position:sticky;top:0;z-index:60;isolation:isolate;box-shadow:0 5px 1
               <li>Straight to Membership records include a rollover date.</li>
               <li>Latest dashboard Cancellations report has been exported from Clubworx for <strong>1 January–31 December 2026</strong>.</li>
               <li>Cancellation data has been pasted into the spreadsheet.</li>
-              <li>Cancellation Sync completed successfully.</li>
-              <li>Full Sync - Members + Cancellations has been run.</li>
+              <li>Run Cancellations Sync Only completed successfully.</li>
+              <li>Run Full Sync (Members + Cancellations + Dashboard) has been run.</li>
               <li>Rollovers, Intro Sales, Straight to Membership, Cancellations, and Net Growth have been reviewed for accuracy.</li>
             </ul>
           </div>
