@@ -103,6 +103,9 @@ h2.sec:first-of-type{margin-top:26px}
 .guide-note{font-size:12px;color:var(--muted);background:rgba(245,185,33,.08);border:1px solid rgba(245,185,33,.22);
   border-radius:8px;padding:10px 12px;line-height:1.55}
 .guide-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.export-example{margin:16px 0;padding:14px;background:var(--panel-2);border:1px solid var(--line-hi);border-radius:10px}
+.export-example img{display:block;width:100%;max-width:800px;height:auto;background:#fff;border-radius:6px}
+.export-example figcaption{font-size:12px;color:var(--muted);margin-top:10px;line-height:1.5}
 .llink{font-size:12px;color:var(--gold);text-decoration:none;display:inline-flex;align-items:center;gap:5px;
   background:rgba(245,185,33,.1);border:1px solid rgba(245,185,33,.25);border-radius:7px;padding:6px 10px}
 .llink:hover{background:rgba(245,185,33,.18)}
@@ -420,15 +423,39 @@ header.top{position:sticky;top:0;z-index:60;isolation:isolate;box-shadow:0 5px 1
           <div class="sop-section">
             <h4>Cancellations</h4>
             <p>Cancellations are maintained inside the Daily Numbers Check Spreadsheet and must be refreshed manually.</p>
-            <h5>Updating cancellations</h5>
+            <h5>Step 1 — Open the correct Clubworx report</h5>
             <ol>
-              <li>Open Clubworx.</li>
-              <li>Export the Cancellation Report.</li>
-              <li>Select the reporting period from 1 January of the current year through to the last day of the current month.</li>
-              <li>Download the report.</li>
+              <li>Log into Clubworx and select <strong>Dashboard</strong> in the left-hand menu.</li>
+              <li>Click the <strong>Cancelled members</strong> dashboard tile to open the membership activity report. You can also <a href="https://app.clubworx.com/gyms/2519/active_contacts?period=weeks&amp;type=cancellations&amp;leadTime=1" target="_blank" rel="noopener">open the Cancellations report directly</a>.</li>
+              <li>In the report, select <strong>Cancellations</strong> from the row containing Members, Prospects, Cancellations, Upgrades, Downgrades and Trials.</li>
+            </ol>
+            <div class="guide-note">Use this dashboard Cancellations report for Daily Numbers. The custom report named “Cancellations All” has a different column layout and is not the matching export for this spreadsheet.</div>
+            <h5>Step 2 — Set the full 2026 reporting year</h5>
+            <ol>
+              <li>Find the two date fields beside <strong>Custom</strong> and <strong>Export</strong>.</li>
+              <li>Set the first (start) date to <strong>01 Jan 2026</strong>.</li>
+              <li>Set the second (end) date to <strong>31 Dec 2026</strong>. After typing each date, press Enter or click outside the field.</li>
+              <li>Wait for the report to reload. Confirm the heading reads <strong>Cancellations — January 1st, 2026 — December 31st, 2026</strong>.</li>
+            </ol>
+            <figure class="export-example">
+              <a href="assets/daily-numbers/cancellation-date-range-export.png" target="_blank" rel="noopener" aria-label="Open the full-year Clubworx export screenshot">
+                <img src="assets/daily-numbers/cancellation-date-range-export.png" alt="Clubworx date controls showing start 01 Jan 2026, end 31 Dec 2026, Custom and the Export button" loading="lazy" width="638" height="94">
+              </a>
+              <figcaption>Actual Clubworx controls: start date on the left, end date next, then Custom and Export. Click the image to enlarge.</figcaption>
+            </figure>
+            <div class="guide-note"><strong>Always export the whole year: 1 January–31 December 2026.</strong> Do not use the default past-week range or stop at the end of the current month. Screenshot checked on 9 October 2026.</div>
+            <h5>Step 3 — Export and check the CSV</h5>
+            <ol>
+              <li>Click <strong>Export</strong> at the top right of the Cancellations report.</li>
+              <li>Find the downloaded CSV in your browser downloads or Downloads folder. Clubworx uses a filename beginning <strong>cwx-cancellations-table-</strong>.</li>
+              <li>Open the CSV in a spreadsheet and confirm the headers match the list below. Keep the original column order and include the header row when copying.</li>
+            </ol>
+            <p><strong>Expected columns A–K:</strong> Name, Membership, Up-front Amount, Recurring Amount, Recurring Payment Frequency, Membership Start, Membership End, Membership Duration, Total Collected, Cancellation Type, Reason.</p>
+            <h5>Step 4 — Replace the raw data and synchronise</h5>
+            <ol>
               <li>Open the Daily Numbers Check Spreadsheet.</li>
-              <li>Go to the Cancellation Raw Data tab.</li>
-              <li>Replace the existing data with the newly exported cancellation report.</li>
+              <li>Go to <strong>Cancellation Raw Dump</strong>. Clear the previous imported data in columns A–K, including any leftover rows from a longer export. Keep the tab and other report sheets.</li>
+              <li>Paste the complete new CSV into <strong>A1</strong>, including headers. Replace the old import rather than appending to it.</li>
               <li>Open the Urban Muaythai Sync menu.</li>
               <li>Select Cancellation Sync and allow the script to finish.</li>
             </ol>
@@ -454,7 +481,7 @@ header.top{position:sticky;top:0;z-index:60;isolation:isolate;box-shadow:0 5px 1
               <li>Ensure the New Member Spreadsheet has been fully updated.</li>
               <li>Confirm new members, rollover statuses, Column P rollover dates, and Straight to Membership records are current.</li>
               <li>Update the cancellation report from Clubworx if new cancellations have occurred.</li>
-              <li>Paste the latest cancellation export into the Cancellation Raw Data tab.</li>
+              <li>Export cancellations for <strong>1 January–31 December 2026</strong>, then replace the data in <strong>Cancellation Raw Dump</strong> from A1, including headers.</li>
               <li>Run Cancellation Sync from the Urban Muaythai Sync menu.</li>
               <li>Run Full Sync - Members + Cancellations.</li>
               <li>Review rollovers, intro sales, straight-to-membership numbers, cancellations, and net growth.</li>
@@ -467,7 +494,7 @@ header.top{position:sticky;top:0;z-index:60;isolation:isolate;box-shadow:0 5px 1
               <li>New Member Spreadsheet has been updated.</li>
               <li>All rollover dates have been entered into Column P.</li>
               <li>Straight to Membership records include a rollover date.</li>
-              <li>Latest cancellation report has been exported from Clubworx.</li>
+              <li>Latest dashboard Cancellations report has been exported from Clubworx for <strong>1 January–31 December 2026</strong>.</li>
               <li>Cancellation data has been pasted into the spreadsheet.</li>
               <li>Cancellation Sync completed successfully.</li>
               <li>Full Sync - Members + Cancellations has been run.</li>
