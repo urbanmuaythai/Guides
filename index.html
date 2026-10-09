@@ -173,171 +173,86 @@ header.top{position:sticky;top:0;z-index:60;isolation:isolate;box-shadow:0 5px 1
       <div id="guide-new-member" class="guide-card sop-card" data-category="daily">
         <div class="sop-header">
           <h3><i class="ti ti-users" aria-hidden="true"></i>New Member Spreadsheet SOP</h3>
-          <p>Daily and weekly procedure for adding new members, checking Kickstarter records, rebuilding Reach Out, and keeping rollover reporting clean.</p>
-          <div class="guide-actions">
-            <a class="llink" href="https://docs.google.com/spreadsheets/d/1RzZW1fI-7QRkiDHNBWkOJpbeDZ6GsFl7LrfM2uJP5Lc/edit" target="_blank" rel="noopener"><i class="ti ti-external-link"></i> Open spreadsheet</a>
-          </div>
+          <p>Follow this guide to add a member, check attendance, complete Monday Reach Out and record rollover outcomes. Instructions and screenshots checked against the live workbook on 9 October 2026.</p>
+          <div class="guide-actions"><a class="llink" href="https://docs.google.com/spreadsheets/d/1RzZW1fI-7QRkiDHNBWkOJpbeDZ6GsFl7LrfM2uJP5Lc/edit" target="_blank" rel="noopener"><i class="ti ti-external-link"></i> Open New Member Spreadsheet</a><a class="llink" href="https://app.clubworx.com/gyms/2519/reports/48483" target="_blank" rel="noopener">Open Monday attendance report</a></div>
         </div>
         <div class="sop-body">
           <div class="sop-section">
-            <h4>Purpose</h4>
-            <ul>
-              <li>Record every new Urban Muaythai member.</li>
-              <li>Track each member's Kickstarter or trial progress.</li>
-              <li>Monitor weekly attendance and identify members who require follow-up.</li>
-              <li>Track upcoming rollover opportunities.</li>
-              <li>Ensure no new member is missed during onboarding or conversion.</li>
-            </ul>
+            <h4>Start here: which tab do I use?</h4>
+            <p><strong>Daily:</strong> check new sign-ups → check for duplicates → Add New Member → verify Kickstarter Master → complete Clubworx checks and record outcomes. <strong>Monday:</strong> update attendance → build Reach Out → investigate low attendance → record and assign follow-ups → rebuild reports when needed.</p>
+            <ul><li><strong>Kickstarter Master:</strong> the source record for member details, status, attendance, reach-out notes and actual rollover dates.</li><li><strong>Reach Out:</strong> generated member groups for attendance checks and follow-up.</li><li><strong>📅 Report Periods:</strong> the workbook’s reporting periods.</li><li><strong>📊 Weekly / Monthly Rollover Report:</strong> outcome reporting based on the actual Rolled Over Date. Use Master’s Rollover Due Date and Reach Out to plan upcoming conversations.</li></ul>
+            <figure class="export-example"><a href="assets/new-member/02-spreadsheet-tabs.png" target="_blank" rel="noopener"><img src="assets/new-member/02-spreadsheet-tabs.png" alt="The workbook tabs. Use Kickstarter Master for corrections and Reach Out for follow-up." loading="lazy"></a><figcaption>The workbook tabs. Use Kickstarter Master for corrections and Reach Out for follow-up. Click the image to enlarge.</figcaption></figure>
+            <div class="guide-note">Screenshots show controls and headers only, with member records excluded. The confirmation example is labelled EXAMPLE ONLY — DO NOT SAVE. Use real, verified information for your member.</div>
           </div>
           <div class="sop-section">
-            <h4>Spreadsheet Tabs</h4>
-            <div class="sop-columns">
-              <ul>
-                <li><strong>Reporting Period:</strong> weekly reporting periods used for rollover reporting.</li>
-                <li><strong>Kickstarter Master:</strong> main source of truth for all new-member information.</li>
-                <li><strong>Weekly Rollover Report:</strong> members whose rollover is due in the current Friday-to-Thursday period.</li>
-              </ul>
-              <ul>
-                <li><strong>Monthly Rollover Report:</strong> rollover opportunities due during the selected month.</li>
-                <li><strong>Reach Out:</strong> script-created tab that groups members into attendance and follow-up buckets.</li>
-              </ul>
-            </div>
+            <h4>Daily step 1 — Gather details and check for an existing entry</h4>
+            <ol><li>Check the new-member sign-ups in Slack each morning. Confirm full name, lead source, program start date, purchased type, deposit, date sold, salesperson and age group.</li><li>Open the correct person in Clubworx. Match the full name and member details before checking the membership and payment record. An invoice or scheduled payment is not proof of a completed payment.</li><li>Open <strong>Kickstarter Master</strong>. Press <strong>Ctrl + F</strong> and search the full name. Check any matching row before adding another entry. Update an existing entry when appropriate; ask Mel if two people share a name or you cannot verify the details.</li><li>Resolve missing or conflicting information before saving. Keep a follow-up task for an incomplete sign-up so it is not missed.</li></ol>
           </div>
           <div class="sop-section">
-            <h4>Daily Procedure</h4>
-            <h5>1. Check Slack for new members</h5>
-            <ul>
-              <li>Check Slack every morning for new members who were added or signed up.</li>
-              <li>Confirm full name, start date, Kickstarter or trial type, deposit/payment info, payment date, salesperson, age group, and lead source.</li>
-              <li>Add every new member posted in Slack as soon as possible.</li>
-            </ul>
-            <h5>2. Add the new member</h5>
-            <ol>
-              <li>Open the New Member Spreadsheet.</li>
-              <li>Click the Urban Muaythai menu.</li>
-              <li>Select Add New Member.</li>
-              <li>Complete the prompts: lead source, full name, start date, Kickstarter type, deposit amount, payment date, salesperson, and age group.</li>
-              <li>Review the information, then click Add Member.</li>
-            </ol>
-            <div class="guide-note">Cross-check deposit amount and payment date against Clubworx before submitting.</div>
-            <h5>3. Check the Kickstarter Master entry</h5>
-            <ul>
-              <li>Confirm name spelling, start date, Kickstarter type, payment amount, payment date, salesperson, and age group.</li>
-              <li>Check that rollover due date and reporting period were calculated correctly.</li>
-              <li>Fix incorrect information in Kickstarter Master, because this tab is the source of truth.</li>
-            </ul>
-            <h5>4. Complete daily member checks</h5>
-            <ul>
-              <li>Check for missing Clubworx notes, waiver, photo, member number, attendance, payment details, or staff follow-up.</li>
-              <li>Record replies, cancellations, rollover outcomes, and important notes in the appropriate fields.</li>
-              <li>When a member rolls over, update rollover status and rollover date in Kickstarter Master.</li>
-            </ul>
+            <h4>Daily step 2 — Open Add New Member</h4>
+            <ol><li>In the spreadsheet, click <strong>🥊 Urban MuayThai</strong> on the top menu bar.</li><li>Click <strong>➕ Add New Member</strong>.</li><li>Complete the eight prompts below in order. Click <strong>OK</strong> after each valid answer. <strong>Cancel</strong> exits without adding the member.</li></ol>
+            <figure class="export-example" style="max-width:380px"><a href="assets/new-member/01-menu-add-and-build.png" target="_blank" rel="noopener"><img src="assets/new-member/01-menu-add-and-build.png" alt="Open the custom menu and choose Add New Member." loading="lazy"></a><figcaption>Open the custom menu and choose Add New Member. Click the image to enlarge.</figcaption></figure>
+            <div class="sop-columns" style="max-width:850px;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))"><div><h5>Prompt 1: Lead source</h5><p>Enter <strong>1</strong> for Walk-in or <strong>2</strong> for Phone. Leave blank only when neither applies; click <strong>OK</strong>.</p><figure class="export-example" style="max-width:380px"><a href="assets/new-member/03-wizard-01.png" target="_blank" rel="noopener"><img src="assets/new-member/03-wizard-01.png" alt="Actual Add New Member prompt 1: Lead source." loading="lazy"></a><figcaption>Actual Add New Member prompt 1: Lead source. Click the image to enlarge.</figcaption></figure></div><div><h5>Prompt 2: Full name</h5><p>Enter the member’s full name exactly as it appears in Clubworx. Check spelling and avoid nicknames; click <strong>OK</strong>.</p><figure class="export-example" style="max-width:380px"><a href="assets/new-member/03-wizard-02.png" target="_blank" rel="noopener"><img src="assets/new-member/03-wizard-02.png" alt="Actual Add New Member prompt 2: Full name." loading="lazy"></a><figcaption>Actual Add New Member prompt 2: Full name. Click the image to enlarge.</figcaption></figure></div><div><h5>Prompt 3: Start date</h5><p>Enter the confirmed program start date as <strong>DD/MM/YY</strong>, for example <strong>09/10/26</strong>. This can differ from the sale date. Click <strong>OK</strong>.</p><figure class="export-example" style="max-width:380px"><a href="assets/new-member/03-wizard-03.png" target="_blank" rel="noopener"><img src="assets/new-member/03-wizard-03.png" alt="Actual Add New Member prompt 3: Start date." loading="lazy"></a><figcaption>Actual Add New Member prompt 3: Start date. Click the image to enlarge.</figcaption></figure></div><div><h5>Prompt 4: KS type</h5><p>Enter <strong>1 = KS 28 days</strong>, <strong>2 = 1 Week Trial</strong>, or <strong>3 = Membership</strong>, matching the purchased product; click <strong>OK</strong>.</p><figure class="export-example" style="max-width:380px"><a href="assets/new-member/03-wizard-04.png" target="_blank" rel="noopener"><img src="assets/new-member/03-wizard-04.png" alt="Actual Add New Member prompt 4: KS type." loading="lazy"></a><figcaption>Actual Add New Member prompt 4: KS type. Click the image to enlarge.</figcaption></figure></div><div><h5>Prompt 5: Deposit</h5><p>Enter the verified dollar amount as a number only, for example <strong>220</strong>. Do not copy the example as a standard price. Confirm payment details in Clubworx; click <strong>OK</strong>.</p><figure class="export-example" style="max-width:380px"><a href="assets/new-member/03-wizard-05.png" target="_blank" rel="noopener"><img src="assets/new-member/03-wizard-05.png" alt="Actual Add New Member prompt 5: Deposit." loading="lazy"></a><figcaption>Actual Add New Member prompt 5: Deposit. Click the image to enlarge.</figcaption></figure></div><div><h5>Prompt 6: Date sold</h5><p>Type the actual <strong>Date Sold</strong> as <strong>DD/MM/YY</strong>, including for a sale made today, then click <strong>OK</strong>. Leaving it blank uses the script’s current date; an explicit date avoids date/timezone errors. This field records the sale date, not an assumed payment date.</p><figure class="export-example" style="max-width:380px"><a href="assets/new-member/03-wizard-06.png" target="_blank" rel="noopener"><img src="assets/new-member/03-wizard-06.png" alt="Actual Add New Member prompt 6: Date sold." loading="lazy"></a><figcaption>Actual Add New Member prompt 6: Date sold. Click the image to enlarge.</figcaption></figure></div><div><h5>Prompt 7: Salesperson</h5><p>Use the number shown in the live prompt: <strong>1 Jakob, 2 Richie, 3 Mitch, 4 Harry, 5 Izzy, 6 Nick, 7 Ram</strong>. If the correct staff member is absent, ask Mel instead of selecting someone else. Click <strong>OK</strong>.</p><figure class="export-example" style="max-width:380px"><a href="assets/new-member/03-wizard-07.png" target="_blank" rel="noopener"><img src="assets/new-member/03-wizard-07.png" alt="Actual Add New Member prompt 7: Salesperson." loading="lazy"></a><figcaption>Actual Add New Member prompt 7: Salesperson. Click the image to enlarge.</figcaption></figure></div><div><h5>Prompt 8: Age group</h5><p>Use the group confirmed in the sign-up: <strong>1 Adults (18+), 2 Teens (15–18), 3 Kids (7–10), 4 Teens (11–15)</strong>. Ask Mel if the correct group is unclear; click <strong>OK</strong>.</p><figure class="export-example" style="max-width:380px"><a href="assets/new-member/03-wizard-08.png" target="_blank" rel="noopener"><img src="assets/new-member/03-wizard-08.png" alt="Actual Add New Member prompt 8: Age group." loading="lazy"></a><figcaption>Actual Add New Member prompt 8: Age group. Click the image to enlarge.</figcaption></figure></div></div>
+            <h5>Review and save — the final confirmation</h5>
+            <ol><li>At <strong>Confirm New Member</strong>, compare every displayed detail with the verified sign-up and Clubworx record.</li><li>Click <strong>Yes</strong> only when all details are correct. Click <strong>No</strong> if anything is wrong; restart the wizard with the corrected information. The member is written only after Yes.</li><li>Wait for <strong>Member Added!</strong> and note the row number. The sheet takes you to the new name in Kickstarter Master. If an error appears, check whether the row exists before retrying to avoid a duplicate.</li></ol>
+            <figure class="export-example" style="max-width:380px"><a href="assets/new-member/03-wizard-09-confirm.png" target="_blank" rel="noopener"><img src="assets/new-member/03-wizard-09-confirm.png" alt="Final confirmation: Yes saves; No cancels. The pictured name and $0 deposit are demonstration values, not a price or a real member." loading="lazy"></a><figcaption>Final confirmation: Yes saves; No cancels. The pictured name and $0 deposit are demonstration values, not a price or a real member. Click the image to enlarge.</figcaption></figure>
           </div>
           <div class="sop-section">
-            <h4>Monday Attendance And Reach Out Procedure</h4>
-            <h5>1. Build the Reach Out tab</h5>
-            <ol>
-              <li>Open the New Member Spreadsheet.</li>
-              <li>Click the Urban Muaythai menu.</li>
-              <li>Select Build Reach Out Tab.</li>
-              <li>Allow the script to finish, then open the refreshed Reach Out tab.</li>
-            </ol>
-            <div class="guide-note">Do not manually rebuild or rearrange the buckets unless an error needs to be corrected.</div>
-            <h5>2. Review buckets</h5>
-            <ul>
-              <li>Check program type, current week, attendance, rollover due date, and status.</li>
-              <li>Pay close attention to Week 1, Week 2, Week 3, Week 4, zero attendance, and members approaching rollover.</li>
-            </ul>
-            <h5>3. Update Week 4 attendance</h5>
-            <ol>
-              <li>Review attendance in the Reach Out tab.</li>
-              <li>If Week 4 attendance shows zero incorrectly, clear the incomplete entry.</li>
-              <li>Check the member's full 28-day Kickstarter attendance in Clubworx.</li>
-              <li>Enter the correct 28-day rollover attendance and confirm it matches Clubworx.</li>
-            </ol>
-            <h5>4. Cross-check Week 3 attendance</h5>
-            <ol>
-              <li>Review the Reach Out attendance.</li>
-              <li>Open Clubworx and search the member.</li>
-              <li>Correct the spreadsheet if attendance does not match.</li>
-              <li>Confirm the member is in the correct attendance and follow-up bucket.</li>
-            </ol>
-            <h5>5. Review Week 1 and Week 2 attendance</h5>
-            <ul>
-              <li>Confirm attendance is recorded and cross-check unusual results in Clubworx.</li>
-              <li>Investigate zero or low attendance, not-started members, sickness, booking issues, or missed sign-ins.</li>
-            </ul>
-            <h5>6. Identify members requiring reach out</h5>
-            <ul>
-              <li>Prioritise zero attendance, declining attendance, low Week 3 attendance, inconsistent Week 4 attendance, unresolved concerns, and members close to rollover.</li>
-              <li>Before messaging, check Clubworx notes, previous conversations, whether staff already contacted them, and personalise the message.</li>
-              <li>Record the message and any response in the notes.</li>
-            </ul>
+            <h4>Daily step 3 — Verify the new Master row</h4>
+            <ol><li>Check <strong>B Intro Sales, C Name, D Start Date, L KS Type, R Deposit ($), S Date Sold, T Sold By and U Age Group</strong>.</li><li>Check that calculated dates and week fields appear: <strong>E KS End Date, F Week 1, I Days from Start Date, J WEEK and M Rollover Due Date</strong>. If they are blank or clearly incorrect, ask Mel to repair the formulas.</li><li>Choose the correct <strong>K Rollover Status</strong> using its dropdown. The wizard does not set this field. Use the verified current situation, such as Not Started Yet, In Progress or Pending Waiver.</li><li>Check <strong>Q Membership</strong> against Clubworx where required. When an actual rollover outcome is confirmed, update <strong>K</strong> and enter its actual date in <strong>P Rolled Over Date</strong>. Do not use the planned due date as the actual outcome date.</li></ol>
+            <figure class="export-example"><a href="assets/new-member/04-master-start-fields.png" target="_blank" rel="noopener"><img src="assets/new-member/04-master-start-fields.png" alt="Master’s starting details and calculated date/week fields." loading="lazy"></a><figcaption>Master’s starting details and calculated date/week fields. Click the image to enlarge.</figcaption></figure>
+            <figure class="export-example"><a href="assets/new-member/05-master-rollover-fields.png" target="_blank" rel="noopener"><img src="assets/new-member/05-master-rollover-fields.png" alt="K: Rollover Status; M: Rollover Due Date; P: actual Rolled Over Date." loading="lazy"></a><figcaption>K: Rollover Status; M: Rollover Due Date; P: actual Rolled Over Date. Click the image to enlarge.</figcaption></figure>
+            <div class="guide-note">Correct source information in the matching Master row. Keep rows 1–4, formulas, protected cells and reporting headers intact. Do not drag member rows or paste across calculated columns.</div>
           </div>
           <div class="sop-section">
-            <h4>Rollover Report Procedure</h4>
-            <div class="sop-columns">
-              <div>
-                <h5>Weekly Rollover Report</h5>
-                <ul>
-                  <li>Review members whose rollover is due in the current Friday-to-Thursday period.</li>
-                  <li>Check active status, rollover due date, attendance, assigned/completed rollover conversation, and outcome.</li>
-                  <li>Remove or update members who have already rolled over, cancelled, or moved to a short-term outcome.</li>
-                </ul>
-              </div>
-              <div>
-                <h5>Monthly Rollover Report</h5>
-                <ul>
-                  <li>Use this for forecasting upcoming rollover opportunities.</li>
-                  <li>Plan staff follow-ups and monitor monthly conversion performance.</li>
-                  <li>Check whether any rollover has been missed.</li>
-                </ul>
-              </div>
-            </div>
+            <h4>Daily step 4 — Complete the Clubworx checks</h4>
+            <ol><li>Search for and open the correct member in Clubworx.</li><li>Use <strong>Payments</strong> to verify payment status, amount and dates, and check the purchased membership.</li><li>Use <strong>Waivers</strong> to check completion. Check the member profile for the required photo and member number; action missing onboarding items through the usual staff process.</li><li>Read <strong>Notes</strong>, <strong>Comms</strong> and <strong>Tasks</strong> before contacting the member, to see previous conversations and assigned work.</li><li>Use <strong>Attendance</strong> for attendance checks as described below.</li><li>Record the relevant reply, next action, owner and outcome in the appropriate notes/status fields. Escalate discrepancies, missing access or script errors to Mel.</li></ol>
+            <figure class="export-example"><a href="assets/new-member/12-clubworx-member-tabs.png" target="_blank" rel="noopener"><img src="assets/new-member/12-clubworx-member-tabs.png" alt="The member tabs used for attendance, payments, waivers and follow-up." loading="lazy"></a><figcaption>The member tabs used for attendance, payments, waivers and follow-up. Click the image to enlarge.</figcaption></figure>
           </div>
           <div class="sop-section">
-            <h4>Completion Checklists</h4>
-            <div class="sop-columns">
-              <div>
-                <h5>Daily completion</h5>
-                <ul>
-                  <li>All Slack new members have been added.</li>
-                  <li>Kickstarter Master information is correct.</li>
-                  <li>Clubworx payments and payment dates are checked.</li>
-                  <li>Missing waivers, notes, photos, or member numbers are actioned.</li>
-                  <li>Member replies and rollover outcomes are updated.</li>
-                  <li>No duplicate member records have been created.</li>
-                </ul>
-              </div>
-              <div>
-                <h5>Monday completion</h5>
-                <ul>
-                  <li>Reach Out tab has been rebuilt using the script.</li>
-                  <li>Week 4 attendance has been updated using full 28-day Clubworx attendance.</li>
-                  <li>Week 3 attendance has been cross-checked.</li>
-                  <li>Week 1 and Week 2 attendance have been reviewed.</li>
-                  <li>Zero-attendance members have been investigated.</li>
-                  <li>Upcoming rollovers and required reach-outs are assigned or completed.</li>
-                </ul>
-              </div>
-            </div>
+            <h4>Monday step 1 — Export the attendance report</h4>
+            <ol><li>Open Clubworx <strong>Reports</strong> and search <strong>Initial 28 Day</strong>, or use the report link at the top of this guide.</li><li>Open <strong>Initial 28 Day Member Attendance per 7 days (Every Monday)</strong>. Check the title before exporting.</li><li>Click the <strong>download/export icon with the dropdown arrow</strong> near the top right, then <strong>Export to CSV</strong>. Save the file where you can find it. Keep member exports in the approved staff location.</li><li>Check that the export includes First Name, Last Name, Age, Membership Start Date, Attendance Last Marked, Attendances (Last 7 days), Attendances (Last 30 days), Attendances (Total), Membership Expiry Date, Active Memberships (Names), and Trial Status. The extra Full Name column is supported; retain the original headers.</li></ol>
+            <figure class="export-example"><a href="assets/new-member/14-attendance-report-title.png" target="_blank" rel="noopener"><img src="assets/new-member/14-attendance-report-title.png" alt="Use this exact Monday report, not an unrelated attendance report." loading="lazy"></a><figcaption>Use this exact Monday report, not an unrelated attendance report. Click the image to enlarge.</figcaption></figure>
+            <figure class="export-example" style="max-width:380px"><a href="assets/new-member/15-attendance-export-menu.png" target="_blank" rel="noopener"><img src="assets/new-member/15-attendance-export-menu.png" alt="Open the download dropdown and choose Export to CSV." loading="lazy"></a><figcaption>Open the download dropdown and choose Export to CSV. Click the image to enlarge.</figcaption></figure>
+            <figure class="export-example"><a href="assets/new-member/16-attendance-export-headers.png" target="_blank" rel="noopener"><img src="assets/new-member/16-attendance-export-headers.png" alt="Attendance export headers. Click to enlarge and compare the downloaded file." loading="lazy"></a><figcaption>Attendance export headers. Click to enlarge and compare the downloaded file. Click the image to enlarge.</figcaption></figure>
+            <div class="guide-note">This report currently filters to active trial memberships. It is not a complete attendance list for every member; check other members directly in Clubworx.</div>
           </div>
           <div class="sop-section">
-            <h4>Quality Standard</h4>
-            <ul>
-              <li>Every new member is recorded in Kickstarter Master.</li>
-              <li>Information matches Clubworx and Slack.</li>
-              <li>Attendance is accurate and current.</li>
-              <li>Members appear in the correct Reach Out bucket.</li>
-              <li>Week 3 and Week 4 members have been manually cross-checked.</li>
-              <li>Rollover opportunities are visible, follow-ups are documented, and no active member is missing.</li>
-            </ul>
+            <h4>Monday step 2 — Import and check the weekly attendance</h4>
+            <ol><li>In the New Member Spreadsheet, open <strong>RAW DUMP</strong>. If hidden, use <strong>View → Hidden sheets → RAW DUMP</strong>. If it is missing, ask Mel before using setup commands.</li><li>With RAW DUMP selected, use <strong>File → Import → Upload</strong> and select the new CSV. Choose <strong>Replace current sheet</strong>, check that the selected sheet is RAW DUMP, then import. Never choose Replace spreadsheet or append the new export below the old one.</li><li>Check that the imported headers and data are separated into columns, and that this is the latest Monday export.</li><li>Choose <strong>🥊 Urban MuayThai → Build Attendance Dump Tab</strong>. Wait for completion.</li><li>Review <strong>Attendance Dump</strong> and <strong>Attendance Log</strong>, especially <strong>ACTION</strong> and <strong>REASON</strong>. If these tabs are hidden, open them through View → Hidden sheets.</li><li>Check the matching Master row’s attendance columns <strong>W / X / Y / Z</strong> (Weeks 1 / 2 / 3 / 4). The importer writes the <strong>Last 7 days</strong> count to the current week only when that cell is blank.</li></ol>
+            <figure class="export-example"><a href="assets/new-member/18-sheets-upload.png" target="_blank" rel="noopener"><img src="assets/new-member/18-sheets-upload.png" alt="File → Import → Upload → Browse: select the latest CSV. On the next screen choose Replace current sheet only after checking RAW DUMP is selected." loading="lazy"></a><figcaption>File → Import → Upload → Browse: select the latest CSV. On the next screen choose Replace current sheet only after checking RAW DUMP is selected. Click the image to enlarge.</figcaption></figure>
+            <figure class="export-example" style="max-width:380px"><a href="assets/new-member/17-attendance-import-menu.png" target="_blank" rel="noopener"><img src="assets/new-member/17-attendance-import-menu.png" alt="Run Build Attendance Dump Tab after loading the current export into RAW DUMP." loading="lazy"></a><figcaption>Run Build Attendance Dump Tab after loading the current export into RAW DUMP. Click the image to enlarge.</figcaption></figure>
+            <figure class="export-example" style="max-width:380px"><a href="assets/new-member/06-master-attendance-fields.png" target="_blank" rel="noopener"><img src="assets/new-member/06-master-attendance-fields.png" alt="Master attendance columns W–Z correspond to Weeks 1–4." loading="lazy"></a><figcaption>Master attendance columns W–Z correspond to Weeks 1–4. Click the image to enlarge.</figcaption></figure>
+            <p><strong>WRITTEN:</strong> a count was added. <strong>SKIPPED:</strong> read the reason; an existing number (including zero), missing name match or invalid count needs review. <strong>EXCLUDED:</strong> the Master week is not 1–4. Confirm any correction in Clubworx first; do not clear existing attendance just to force the importer to overwrite it. The imported Week 4 value is initially a seven-day count; complete the full-program review below before treating it as the final rollover attendance.</p>
           </div>
           <div class="sop-section">
-            <h4>Escalation Rules</h4>
-            <ul>
-              <li>Raise payment mismatches, unclear start dates, duplicate records, unverifiable attendance, complaints, cancellation concerns, unresolved payment issues, script errors, or incorrect reporting periods with Mel or the appropriate staff member.</li>
-            </ul>
+            <h4>Monday step 3 — Build Reach Out and review the groups</h4>
+            <ol><li>After updating Master attendance, choose <strong>🥊 Urban MuayThai → Build Reach Out Tab</strong>.</li><li>Wait until the script finishes. Open <strong>Reach Out</strong> and check the reporting dates in its banner.</li><li>Review the 1-week trials, straight-to-membership nurture and Week 1–4 groups. Check <strong>WK, NAME, TYPE, DAYS, KS END and ROLLOVER STATUS</strong> against the member’s program.</li><li>Review <strong>W1–W4</strong>: red indicates zero, yellow 1–3, green 4 or more. A grey/blank future week is not a confirmed zero.</li><li>Prioritise zero or declining attendance, unresolved concerns, members near their KS end/rollover due date and overdue trials.</li></ol>
+            <figure class="export-example"><a href="assets/new-member/08-reach-out-attendance-fields.png" target="_blank" rel="noopener"><img src="assets/new-member/08-reach-out-attendance-fields.png" alt="Reach Out’s program, status and W1–W4 attendance headers." loading="lazy"></a><figcaption>Reach Out’s program, status and W1–W4 attendance headers. Click the image to enlarge.</figcaption></figure>
+            <div class="guide-note"><strong>Build Reach Out Tab</strong> and <strong>Refresh Reach Out from Master</strong> both rebuild Reach Out from Master. Before rebuilding, confirm your changes are present in Master. Keep the generated groups and internal Master-row references intact; do not manually rearrange or delete members.</div>
+          </div>
+          <div class="sop-section">
+            <h4>Monday step 4 — Cross-check attendance in Clubworx</h4>
+            <ol><li>Open the correct member, then click <strong>Attendance</strong>.</li><li>In <strong>Bookings</strong>, set <strong>From</strong> and <strong>To</strong> for the week you are checking. Use the membership dropdown to include the relevant Kickstarter/trial membership.</li><li>Check the <strong>Attendance</strong> column on the listed classes. Count confirmed attendance, not every booking. If general attendance is used for that member, check <strong>Gen. Attendance</strong> too and avoid counting the same visit twice.</li><li>Cross-check Week 3 and unusual Week 1/2 results. Check dates, missed attendance marks, sickness, start delays or booking issues before correcting a number. Enter verified weekly corrections in W1–W3.</li><li>For the Monday <strong>Week 4 rollover review</strong>, set the dates to cover the member’s full 28-day Kickstarter program, using Master’s start and KS end dates. Count attendance across the full program.</li><li>Enter the verified <strong>full 28-day rollover attendance in W4</strong>, replacing an imported seven-day count when necessary. Record the date range, full-program total and rollover discussion in <strong>Notes</strong>, so staff know the Week 4 review is complete. Confirm the corrected value appears in Master Z.</li></ol>
+            <figure class="export-example"><a href="assets/new-member/13-clubworx-attendance-filters.png" target="_blank" rel="noopener"><img src="assets/new-member/13-clubworx-attendance-filters.png" alt="Attendance → Bookings: choose From, To and the relevant membership. Gen. Attendance is a separate tab." loading="lazy"></a><figcaption>Attendance → Bookings: choose From, To and the relevant membership. Gen. Attendance is a separate tab. Click the image to enlarge.</figcaption></figure>
+            <div class="guide-note">The importer’s Last 7 days count, the report’s Last 30 days count and a member’s full 28-day program are different periods. A genuine zero stays zero; replace it only after confirming a discrepancy in Clubworx.</div>
+          </div>
+          <div class="sop-section">
+            <h4>Monday step 5 — Record and assign the follow-up</h4>
+            <ol><li>Read Clubworx Notes, Comms and Tasks and the spreadsheet’s previous notes before contacting the member. Check whether another staff member has already followed up.</li><li>Assign or complete the appropriate conversation through the usual staff process. Personalise it to the confirmed attendance and situation.</li><li>In Reach Out, record the staff member in the matching <strong>WK1/2/3/4 BY</strong> field and the contact method in its <strong>HOW</strong> field. Add the date, relevant reply, next action and owner in <strong>NOTES</strong>.</li><li>Check that edits to status, weekly attendance, BY/HOW and Notes have appeared in the corresponding Kickstarter Master row. If they have not, preserve the details and ask Mel to resolve the sync; do not install triggers yourself.</li><li>When a rollover outcome is confirmed, update <strong>Master K Rollover Status</strong> and <strong>P Rolled Over Date</strong>. Enter the verified membership in Q where appropriate. Reach Out does not replace the need to record P in Master.</li></ol>
+            <figure class="export-example"><a href="assets/new-member/09-reach-out-log-fields.png" target="_blank" rel="noopener"><img src="assets/new-member/09-reach-out-log-fields.png" alt="Use each week’s BY / HOW fields and the shared NOTES field to document follow-up." loading="lazy"></a><figcaption>Use each week’s BY / HOW fields and the shared NOTES field to document follow-up. Click the image to enlarge.</figcaption></figure>
+          </div>
+          <div class="sop-section">
+            <h4>Reporting — rebuild after recording outcomes</h4>
+            <ol><li>Verify Master’s status and actual Rolled Over Date for every recorded outcome.</li><li>Choose <strong>🥊 Urban MuayThai → Build Weekly Rollover Report</strong> or <strong>Build Monthly Rollover Report</strong> as required. Wait for the script to finish, then open the corresponding report.</li><li>Check the generated date and reporting period. Weekly outcomes are grouped Friday–Thursday; monthly outcomes use the calendar month of the actual Rolled Over Date.</li><li>If an outcome is missing, check that Master P contains a valid date and K contains a status. Correct Master and rebuild. Sales totals also depend on <strong>S Date Sold</strong>.</li><li>For upcoming rollover planning, check Master <strong>M Rollover Due Date, N Reporting Period and O Report Week</strong>, plus Reach Out’s KS end and status. Do not use outcome reports as a list of future due dates.</li></ol>
+            <figure class="export-example" style="max-width:380px"><a href="assets/new-member/07-report-build-menu.png" target="_blank" rel="noopener"><img src="assets/new-member/07-report-build-menu.png" alt="The two report-building commands in the custom menu." loading="lazy"></a><figcaption>The two report-building commands in the custom menu. Click the image to enlarge.</figcaption></figure>
+            <figure class="export-example"><a href="assets/new-member/10-weekly-report-header.png" target="_blank" rel="noopener"><img src="assets/new-member/10-weekly-report-header.png" alt="Weekly report headers and its explanation of the actual Rolled Over Date." loading="lazy"></a><figcaption>Weekly report headers and its explanation of the actual Rolled Over Date. Click the image to enlarge.</figcaption></figure>
+            <figure class="export-example"><a href="assets/new-member/11-monthly-report-header.png" target="_blank" rel="noopener"><img src="assets/new-member/11-monthly-report-header.png" alt="Monthly report headers and its explanation of the actual Rolled Over Date." loading="lazy"></a><figcaption>Monthly report headers and its explanation of the actual Rolled Over Date. Click the image to enlarge.</figcaption></figure>
+            <div class="guide-note">These reports are regenerated from Master. Correct the source row and rebuild; do not manually remove or edit report members.</div>
+          </div>
+          <div class="sop-section">
+            <h4>Before finishing</h4>
+            <div class="sop-columns"><div><h5>Daily checklist</h5><ul><li>Every verified new sign-up is recorded once.</li><li>Master details, status and calculated dates have been checked.</li><li>Clubworx payment and onboarding checks are complete or have an assigned next action.</li><li>Replies and confirmed outcomes are recorded, including the actual outcome date.</li></ul></div><div><h5>Monday checklist</h5><ul><li>The latest export/import was checked, including skipped and unmatched rows.</li><li>Reach Out was rebuilt after attendance updates.</li><li>Week 3 and full 28-day Week 4 reviews are complete; unusual Week 1/2 results were investigated.</li><li>Follow-ups have an owner and dated notes, with changes verified in Master.</li><li>Reports were regenerated where required; unresolved issues have been passed to Mel.</li></ul></div></div>
           </div>
         </div>
       </div>
