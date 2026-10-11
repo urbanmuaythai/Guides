@@ -1043,126 +1043,56 @@ header.top{position:sticky;top:0;z-index:60;isolation:isolate;box-shadow:0 5px 1
       <div id="guide-cancellation-intelligence" class="guide-card sop-card" data-category="intelligence">
         <div class="sop-header">
           <h3><i class="ti ti-user-x" aria-hidden="true"></i>Cancellation Analysis Spreadsheet SOP</h3>
-          <p>Procedure for refreshing year-to-date cancellation data, rebuilding cancellation reports, and supporting churn and retention analysis.</p>
-          <div class="guide-actions">
-            <a class="llink" href="https://docs.google.com/spreadsheets/d/1GTl8AV8nsBo2ZjdGeSwpVOytQZHs0POdkNBQ4iQZrEE/edit?gid=37903069#gid=37903069" target="_blank" rel="noopener"><i class="ti ti-external-link"></i> Open report</a>
-          </div>
+          <p>Export the full 2026 cancellation report, replace the source data, refresh all tabs, and check the reporting period and churn figures.</p>
+          <div class="guide-actions"><a class="llink" href="https://docs.google.com/spreadsheets/d/1GTl8AV8nsBo2ZjdGeSwpVOytQZHs0POdkNBQ4iQZrEE/edit?gid=1941480641#gid=1941480641" target="_blank" rel="noopener"><i class="ti ti-external-link"></i> Open spreadsheet</a></div>
         </div>
         <div class="sop-body">
-          <div class="sop-section">
-            <h4>Purpose</h4>
-            <p>The Cancellation Analysis Spreadsheet monitors and analyses member cancellations across the year. It provides insight into cancellation trends, churn rates, and weekly and monthly reporting so the team can identify patterns and make informed retention decisions.</p>
-            <p>The spreadsheet is refreshed using the latest cancellation data exported from Clubworx.</p>
+          <div class="sop-section"><h4>Before you start</h4>
+            <p>You need access to Clubworx and editing access to the Cancellation Analysis spreadsheet. Complete this in order: export → replace RAW data → Refresh All → check every report. The script runs from the spreadsheet menu; you do not need to open Apps Script.</p>
+            <div class="guide-note">Use <strong>1 January–31 December 2026</strong> for the cancellation export every time. Export the whole year even when the year is still in progress.</div>
+            <p>These screenshots show the actual controls and workbook headers, checked on 11 October 2026. Member records are omitted.</p>
           </div>
-          <div class="sop-section">
-            <h4>Required Tools</h4>
-            <ul>
-              <li>Clubworx</li>
-              <li>Cancellation Analysis Spreadsheet</li>
-              <li>Apps Script</li>
-            </ul>
+          <div class="sop-section"><h4>Step 1 — Open cancellations in Clubworx</h4>
+            <ol><li>Open the Clubworx <strong>Dashboard</strong>.</li><li>Open the <strong>Cancellations</strong> tile/report.</li><li>If the report selector is shown, select <strong>Cancellations</strong>.</li></ol>
+            <figure class="export-example"><a href="assets/daily-numbers/step-1-dashboard-cancellations.png" target="_blank" rel="noopener"><img src="assets/daily-numbers/step-1-dashboard-cancellations.png" alt="Clubworx Dashboard: open the Cancellations tile." loading="lazy"></a><figcaption>Clubworx Dashboard: open the Cancellations tile. Click the image to enlarge.</figcaption></figure>
+            <figure class="export-example"><a href="assets/daily-numbers/step-1-select-cancellations.png" target="_blank" rel="noopener"><img src="assets/daily-numbers/step-1-select-cancellations.png" alt="Choose Cancellations in the report selector." loading="lazy"></a><figcaption>Choose Cancellations in the report selector. Click the image to enlarge.</figcaption></figure>
           </div>
-          <div class="sop-section">
-            <h4>Data Source</h4>
-            <p>The Cancellation Analysis Spreadsheet uses one Clubworx export as the source of truth for all cancellation reporting and analysis.</p>
-            <ul>
-              <li>Cancellation Report</li>
-            </ul>
+          <div class="sop-section"><h4>Step 2 — Set the full-year dates and export</h4>
+            <ol><li>Set the start date to <strong>01/01/2026</strong>.</li><li>Set the end date to <strong>31/12/2026</strong> and apply the range.</li><li>Check both dates on screen, then click <strong>Export</strong>.</li><li>Open the downloaded CSV from your browser downloads or Downloads folder in Excel or Google Sheets.</li></ol>
+            <figure class="export-example"><a href="assets/daily-numbers/cancellation-date-range-export.png" target="_blank" rel="noopener"><img src="assets/daily-numbers/cancellation-date-range-export.png" alt="Use 01/01/2026 to 31/12/2026 for the full-year export." loading="lazy"></a><figcaption>Use 01/01/2026 to 31/12/2026 for the full-year export. Click the image to enlarge.</figcaption></figure>
+            <figure class="export-example"><a href="assets/daily-numbers/step-3-export-button.png" target="_blank" rel="noopener"><img src="assets/daily-numbers/step-3-export-button.png" alt="Click Export after applying and checking the full-year dates." loading="lazy"></a><figcaption>Click Export after applying and checking the full-year dates. Click the image to enlarge.</figcaption></figure>
+            <div class="guide-note">Do not use an end date of today or the end of the current month. Keep the export’s original column order and include its header row when copying.</div>
           </div>
-          <div class="sop-section">
-            <h4>Step 1 - Export The Cancellation Report</h4>
-            <ol>
-              <li>Open Clubworx.</li>
-              <li>Navigate to the Cancellation Report.</li>
-              <li>Set the reporting period from 1 January of the current year to the last day of the current month.</li>
-              <li>Export the report.</li>
-              <li>Download the file.</li>
-            </ol>
-            <div class="guide-note">Example: if the current month is July, use 1 January - 31 July.</div>
-            <div class="guide-note">Always export from the beginning of the current year through to the end of the current month so the spreadsheet contains a complete year-to-date dataset.</div>
+          <div class="sop-section"><h4>Step 3 — Replace the RAW export starting at A4</h4>
+            <ol><li>Open the spreadsheet using the button above. Click <strong>RAW — Cancellations</strong>.</li><li>Check that the CSV has these 11 columns, in this order: <strong>Name, Membership, Up-front Amount, Recurring Amount, Recurring Payment Frequency, Membership Start, Membership End, Membership Duration, Total Collected, Cancellation Type, Reason</strong>.</li><li>Clear the old imported values in <strong>A4:K</strong> through the last old data row. To select the current sheet’s 1,000 rows, type <strong>A4:K1000</strong> in the name box at the top left, press Enter, then press Delete to clear values. If the sheet has more rows, extend the range through the last old row.</li><li>In the opened CSV, select all 11 columns’ used rows, including the header. Copy them.</li><li>Return to <strong>RAW — Cancellations</strong>. Type <strong>A4</strong> in the name box, press Enter, then paste. The CSV header belongs in <strong>row 4</strong>; the first member belongs in <strong>row 5</strong>.</li><li>Check the first and last imported rows. Confirm names are in A, reasons in K, and the CSV’s data-row count matches the imported data-row count.</li></ol>
+            <figure class="export-example"><a href="assets/cancellation-analysis/01-raw-paste-a4.png" target="_blank" rel="noopener"><img src="assets/cancellation-analysis/01-raw-paste-a4.png" alt="RAW — Cancellations: use A4 for the CSV header and row 5 for the first member." loading="lazy"></a><figcaption>RAW — Cancellations: use A4 for the CSV header and row 5 for the first member. Click the image to enlarge.</figcaption></figure>
+            <div class="guide-note">Keep the fixed headings in <strong>rows 1–3</strong>. Paste only into <strong>A–K</strong>; <strong>L–N</strong> are script-generated Category, Counted and Reporting Period. Replace the old export instead of appending it, so cancelled rows are not duplicated or left behind.</div>
+            <p><strong>If Sheets blocks the paste because row 4 is merged:</strong> select only <strong>A4:K4</strong>, use <strong>Format → Merge cells → Unmerge</strong>, select A4 again, and paste the CSV. Do not unmerge or clear the title rows.</p>
           </div>
-          <div class="sop-section">
-            <h4>Step 2 - Update The Raw Cancellation Data</h4>
-            <ol>
-              <li>Open the Cancellation Analysis Spreadsheet.</li>
-              <li>Navigate to the Raw Cancellations tab.</li>
-              <li>Replace the existing data with the latest Clubworx cancellation export.</li>
-            </ol>
-            <div class="guide-note">Ensure the full report has been pasted before continuing.</div>
+          <div class="sop-section"><h4>Step 4 — Run Refresh All</h4>
+            <ol><li>Open <strong>⚡ Urban MT Cancellations</strong> in the top menu.</li><li>Choose <strong>🔄 Refresh All — Categorise + Rebuild All Tabs</strong>.</li><li>Wait without editing the sheet. The script categorises RAW and rebuilds all five reporting tabs.</li><li>Look for the success message <strong>“✅ Cancellation Analysis refreshed!”</strong>, review its totals, and dismiss it.</li></ol>
+            <figure class="export-example" style="max-width:380px"><a href="assets/cancellation-analysis/03-refresh-all-menu.png" target="_blank" rel="noopener"><img src="assets/cancellation-analysis/03-refresh-all-menu.png" alt="Choose the first command: Refresh All — Categorise + Rebuild All Tabs." loading="lazy"></a><figcaption>Choose the first command: Refresh All — Categorise + Rebuild All Tabs. Click the image to enlarge.</figcaption></figure>
+            <div class="guide-note">“Categorise RAW Data Only” does not rebuild the reports. If Refresh All reports an error or stops without the success message, check the source import and escalate to Mel before using the figures.</div>
           </div>
-          <div class="sop-section">
-            <h4>Step 3 - Refresh The Spreadsheet</h4>
-            <ol>
-              <li>Click the Urban MT Cancellations menu.</li>
-              <li>Select Refresh All Categories and Rebuild All Tabs.</li>
-              <li>Wait for the script to complete.</li>
-            </ol>
-            <div class="guide-note">Do not edit the spreadsheet while the refresh is running.</div>
+          <div class="sop-section"><h4>Step 5 — Check the source and reporting tabs</h4>
+            <figure class="export-example"><a href="assets/cancellation-analysis/02-workbook-tabs.png" target="_blank" rel="noopener"><img src="assets/cancellation-analysis/02-workbook-tabs.png" alt="The five reporting tabs and RAW — Cancellations source tab." loading="lazy"></a><figcaption>The five reporting tabs and RAW — Cancellations source tab. Click the image to enlarge.</figcaption></figure>
+            <p>Start with RAW. Confirm <strong>L: Category, M: Counted, N: Reporting Period</strong> have been populated for imported records. Do not manually overwrite these columns.</p>
+            <p><strong>Counted = Yes</strong> identifies included churn exits; <strong>No</strong> indicates an excluded record. Kickstarter, casual, short-term, upfront, trial, sponsored and deposit products can be excluded. The export’s total rows will therefore differ from counted exits. Investigate an unexpected classification with Mel.</p>
+            <h5>Cancellations by Period</h5><p>Review the required <strong>Friday–Thursday</strong> reporting week. Check member, membership, Cancellation Date, Category, Counted, Cancel Type and Reason against the source. Compare counted rows within the same period, rather than all export rows.</p>
+            <figure class="export-example"><a href="assets/cancellation-analysis/04-period-headers.png" target="_blank" rel="noopener"><img src="assets/cancellation-analysis/04-period-headers.png" alt="Cancellations by Period: Friday–Thursday weeks and the Counted column." loading="lazy"></a><figcaption>Cancellations by Period: Friday–Thursday weeks and the Counted column. Click the image to enlarge.</figcaption></figure>
+            <h5>Cancellations by Month</h5><p>Review the required calendar month, from the first to the last day. Check the same fields and the Counted flag. The script uses Membership End as the cancellation date for <strong>Cancelled</strong> rows, and <strong>Membership End + 1 day</strong> for Expired rows; a record may therefore fall into the next month or year. Keep the original export dates unchanged.</p>
+            <figure class="export-example"><a href="assets/cancellation-analysis/05-month-headers.png" target="_blank" rel="noopener"><img src="assets/cancellation-analysis/05-month-headers.png" alt="Cancellations by Month: check Cancellation Date, Category and Counted." loading="lazy"></a><figcaption>Cancellations by Month: check Cancellation Date, Category and Counted. Click the image to enlarge.</figcaption></figure>
+            <h5>Cancellation Analysis</h5><p>Check the reporting date and completed week near the top before reading the executive snapshot or rolling 30-day results. The dashboard reports through the <strong>last completed Thursday</strong>; future-dated rows in the full-year export are not current completed-period exits.</p>
+            <figure class="export-example"><a href="assets/cancellation-analysis/07-dashboard-headers.png" target="_blank" rel="noopener"><img src="assets/cancellation-analysis/07-dashboard-headers.png" alt="Cancellation Analysis: executive snapshot fields to check for the selected reporting window." loading="lazy"></a><figcaption>Cancellation Analysis: executive snapshot fields to check for the selected reporting window. Click the image to enlarge.</figcaption></figure>
+            <h5>Churn Analysis</h5><p>Check that the correct period has Adult and U18 membership bases and that the status and churn percentages are valid. Weekly bases come from that week in Historical Membership; monthly bases use the month’s starting count. Existing manual bases can be retained when a historical week is missing. Confirm a retained base with Mel. Do not substitute today’s live membership count for a historical base or guess a missing denominator.</p>
+            <figure class="export-example"><a href="assets/cancellation-analysis/06-churn-base-headers.png" target="_blank" rel="noopener"><img src="assets/cancellation-analysis/06-churn-base-headers.png" alt="Churn Analysis: membership bases, exit counts, percentages and Status." loading="lazy"></a><figcaption>Churn Analysis: membership bases, exit counts, percentages and Status. Click the image to enlarge.</figcaption></figure>
+            <h5>Insights Tab</h5><p>Check the reporting cutoff and completed week, then review churn and exit-reason summaries for the same period. Confirm that totals agree with the other tabs for matching dates and counted exits.</p>
+            <figure class="export-example"><a href="assets/cancellation-analysis/08-insights-headers.png" target="_blank" rel="noopener"><img src="assets/cancellation-analysis/08-insights-headers.png" alt="Insights Tab: completed-week churn fields and the membership-base note." loading="lazy"></a><figcaption>Insights Tab: completed-week churn fields and the membership-base note. Click the image to enlarge.</figcaption></figure>
           </div>
-          <div class="sop-section">
-            <h4>Step 4 - Review The Reports</h4>
-            <p>Once the script has completed, the spreadsheet automatically rebuilds all reporting tabs from the latest cancellation data.</p>
-            <ul>
-              <li>Cancellation Analysis</li>
-              <li>Cancellations by Reporting Period</li>
-              <li>Cancellations by Month</li>
-              <li>Churn Analysis</li>
-            </ul>
+          <div class="sop-section"><h4>Completion checklist</h4>
+            <ul><li>The Clubworx export covers <strong>1 January–31 December 2026</strong>.</li><li>The latest full CSV replaced A–K, with its header in row 4 and first member in row 5.</li><li>The imported data-row count and first/last rows match the CSV, with no old rows left below it.</li><li>Refresh All finished with its success message and updated all five reporting tabs.</li><li>Categories, Counted flags, reporting dates and membership bases were checked.</li><li>Counts were compared for the same period and inclusion rules; any unexplained difference was raised with Mel.</li></ul>
           </div>
-          <div class="sop-section">
-            <h4>Using The Report</h4>
-            <ul>
-              <li>Monitor weekly and monthly cancellation trends.</li>
-              <li>Track month-to-date cancellations.</li>
-              <li>Analyse churn over time.</li>
-              <li>Support the Weekly Dashboard.</li>
-              <li>Identify recurring cancellation patterns.</li>
-              <li>Assist with member retention planning.</li>
-            </ul>
-          </div>
-          <div class="sop-section">
-            <h4>Completion Checklist</h4>
-            <div class="sop-columns">
-              <div>
-                <ul>
-                  <li>The latest Cancellation Report has been exported from Clubworx.</li>
-                  <li>The reporting period covers 1 January through to the last day of the current month.</li>
-                  <li>The report has been pasted into the Raw Cancellations tab.</li>
-                  <li>Refresh All Categories and Rebuild All Tabs has been run successfully.</li>
-                </ul>
-              </div>
-              <div>
-                <ul>
-                  <li>The Cancellation Analysis tab has updated correctly.</li>
-                  <li>The Cancellations by Reporting Period report has refreshed.</li>
-                  <li>The Cancellations by Month report has refreshed.</li>
-                  <li>The Churn Analysis report has refreshed.</li>
-                  <li>All figures appear consistent with the latest Clubworx export.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="sop-section">
-            <h4>Quality Standard</h4>
-            <ul>
-              <li>The latest year-to-date cancellation data has been imported.</li>
-              <li>All reporting tabs have been successfully rebuilt.</li>
-              <li>Cancellation totals match the latest Clubworx export.</li>
-              <li>Weekly, monthly, and churn reporting accurately reflects the current reporting period.</li>
-              <li>The spreadsheet is ready to support operational reporting and business decision-making.</li>
-            </ul>
-          </div>
-          <div class="sop-section">
-            <h4>Escalation Rules</h4>
-            <ul>
-              <li>Escalate if the Cancellation Report cannot be exported from Clubworx.</li>
-              <li>Escalate if the reporting period is incorrect or incomplete.</li>
-              <li>Escalate if the raw data cannot be imported into the spreadsheet.</li>
-              <li>Escalate if Refresh All Categories and Rebuild All Tabs fails to complete.</li>
-              <li>Escalate if cancellation totals do not match Clubworx.</li>
-              <li>Escalate if any reporting tab fails to refresh or displays incorrect information.</li>
-            </ul>
-          </div>
+          <div class="sop-section"><h4>When to escalate</h4><p>Ask Mel if the export dates or columns are wrong, the CSV cannot be pasted, the menu is missing, refresh fails, a membership is unexpectedly excluded, a historical base is missing, or matching-period counts disagree. Include the affected tab, period and error message. Resolve the issue before using those figures for operational reporting.</p></div>
         </div>
       </div>
       <div id="guide-class-attendance" class="guide-card sop-card" data-category="weekly">
